@@ -5,4 +5,4 @@ Type=Application
 NoDisplay=true
 Exec=sudo termite -e "vim %f"
 Name=VimTermite
-Comment=Custom definition for sudo
+Comment=Open files via termite and vim
