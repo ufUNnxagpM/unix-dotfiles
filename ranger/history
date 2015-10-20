@@ -1,0 +1,11 @@
+open_with 
+mkdir Torrents
+mkdir .tmptorrent
+search rc.conf
+search resolv
+open_with sudo vim
+rename .ncmpcpp
+search mu
+delete
+rename Aphex Twin - Come to Daddy
+search mus
