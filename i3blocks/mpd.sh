@@ -4,9 +4,10 @@ check=$(mpc | grep -c playing)
 if [ $check -gt 0 ]
 then
 mout=$(mpc | sed -n '1p')
-mout="$mout «"
+mout="⮕  $mout "
 echo $mout
 else
 echo " "
 fi
 exit 0
+

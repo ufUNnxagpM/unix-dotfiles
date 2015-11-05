@@ -85,4 +85,3 @@ function toggle_bottombar(p) {
 }
 toggle_bottombar();
 EOF
-
