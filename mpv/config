@@ -1,2 +1,12 @@
 vo=opengl-hq:interpolation:scale=ewa_lanczossharp:cscale=ewa_lanczossharp:tscale=mitchell
 hwdec=vdpau
+sub-codepage=utf8:cp1250
+embeddedfonts=yes
+osd-font="Anonymous Pro"
+osd-font-size=60
+sub-text-font="Anonymous Pro"
+sub-text-font-size=40
+stop-screensaver = "yes"
+alang = en, jp
+cache-default=16384
+autofit-larger=90%90%
