@@ -21,12 +21,12 @@ my $status;
 my $percent;
 my $full_text;
 my $short_text;
-
+my $whichbat;
+my $full;
 # read the first line of the "acpi" command output
 open (ACPI, 'acpi -b |') or die "Can't exec acpi: $!\n";
 $acpi = <ACPI>;
 close(ACPI);
-
 # fail on unexpected output
 if ($acpi !~ /: (\w+), (\d+)%/) {
 	die "$acpi\n";
@@ -34,21 +34,55 @@ if ($acpi !~ /: (\w+), (\d+)%/) {
 
 $status = $1;
 $percent = $2;
+$whichbat = 0;
+$full = 0;
 
-
-#icon for charging/discharge or if battery is really low or full
-if ($percent > 92) {
-	#$full_text = '⮏ ';
-        $full_text = 'Full ';
-} elsif ($status eq 'Charging') {
-	#$full_text = '⮒ ';
-        $full_text = 'Chr '; 
-} #elsif ($percent < 40) {
-	#$full_text = '⮐ ';}
- elsif ($status eq 'Discharging') {
-	#$full_text = '⮑ ';
-        $full_text = 'Bat ';
+#lazy way of enabling dual battery support
+#this switches battery data if the first one dies
+#if ($percent < 5) {
+if ($status eq 'Unknown') {
+open (ACPI, 'acpi -b | grep -n 1 |') or die "Can't exec acpi: $!\n";
+$acpi = <ACPI>;
+close(ACPI);
+if ($acpi !~ /: (\w+), (\d+)%/) {
+	die "$acpi\n";
 }
+$status = $1;
+$percent = $2;
+$whichbat = 1;
+}
+
+if($percent > 90) { $full=1; }
+#Identify battery in output eventually gets overwritten by icons
+if ($whichbat) {
+        $full_text = 'Int '
+} else {
+        $full_text = 'Ext '
+}
+
+#shows when fully charged (usually shows int battery at ~95% without this) helps avoid clutter
+if ($full_text eq 'Int ' && $full && $status ne 'Discharging') {
+        $full_text= 'Full';         
+        $short_text = $full_text;
+        print "$full_text\n";
+        print "$short_text\n";
+        print "#A8FF00\n";
+        exit 0;
+
+}
+#icon for charging/discharge or if battery is really low or full and to identify which battery
+if ($percent > 92) {
+	$full_text = '⮏ ';
+        #$full_text .= 'Full ';
+} elsif ($status eq 'Charging') {
+	$full_text = '⮒ ';
+        #$full_text .= 'Chr '; 
+} elsif ($status eq 'Discharging' && $whichbat) {
+	$full_text = '⮐ ';
+} elsif ($status eq 'Discharging') {
+	$full_text = '⮑ ';
+        #$full_text .= 'Bat ';
+} 
 
 #adds the percent of battery
 $full_text .= "$percent%";
@@ -64,7 +98,7 @@ print "$full_text\n";
 print "$short_text\n";
 
 # consider color and urgent flag only on discharge
-if ($status eq 'Discharging') {
+if ($status eq 'Discharging' && $whichbat) {
 
 	if ($percent < 20) {
 		print "#FF0000\n";

@@ -1,5 +1,5 @@
 " Matts's vimperatorrc for colemak
-colorscheme light
+colorscheme twily
 " rebind to wasd like scrolling
 nnoremap u 4k
 nnoremap e 4j
