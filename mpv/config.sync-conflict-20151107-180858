@@ -1,2 +1,0 @@
-vo=opengl-hq:interpolation:scale=ewa_lanczossharp:cscale=ewa_lanczossharp:tscale=mitchell
-hwdec=vdpau
