@@ -81,7 +81,8 @@ bindsym XF86AudioMute exec amixer sset Master toggle
 # start dmenu (a program launcher)
 #bindsym $mod+r exec i3-dmenu-desktop  #-nb "#161614" -nf "#a0a089" -sb "#a0a08c" -sf "#161614"
 #bindsym $mod+r exec j4-dmenu-desktop --dmenu='dmenu -i  -nb "#161614" -nf "#a0a089" -sb "#a0a08c" -sf "#161614" -h 17'
-bindsym $mod+r exec rofi -show run -font "Terminus 14" -fg "#574921" -bg "#faf8f2" -i -lines 8 -width 30 -bw 5 -hide-scrollbar -bc "#95c7ae" -bg-active "#95c7ae" -hlbg "#95c7ae" 
+#bindsym $mod+r exec rofi -show run -font "Terminus 18" -fg "#c79595" -bg "#faf8f2" -i -lines 8 -width 30 -bw 5 -hide-scrollbar -bc "#95c7ae" -bg-active "#95c7ae" -hlbg "#95c7ae" # -hlbg "#95c7ae"  -hlbg "#95c7ae"  
+bindsym $mod+r exec rofi -show run -terminal termite -lines 3 -eh 2 -width 100 -padding 450 -opacity 90 -bw 0 -bc "#2f343f" -bg "#2f343f" -hlbg "#2f343f" -hlfg "#c79595" -fg "#95c7ae" -font "Terminus 24"
 # -w 1000 -h 38 -x 183 -y 300
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -217,7 +218,7 @@ bar {
     #hidden_state hide
     #modifier Mod4
     #font -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
-    font pango: terminus 8
+    font pango: Terminus, uushi 8
     colors {
         background $background
         statusline $warning
