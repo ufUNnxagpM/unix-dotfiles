@@ -6,10 +6,11 @@
 #
 
 # i3 config file (v4)
-#
+# mod1=Ralt mod4=winkey mod5=Lalt
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod mod4
+set $mod mod1
+set $lmod mod5
 
 # Font for window titles. Will also be used by the bar unless a different fot
 # is used in the bar {} block below.
@@ -23,13 +24,13 @@ font pango:Terminus 8
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-set $background #17181a
+set $background #161614
 set $foreground #a0a0a0
-set $gray       #262622
-set $primary    #ffffff
+set $gray       #43454a
+set $primary    #90929a
 set $secondary  #a0a08c
 set $tertiary   #a0a089
-set $warning    #a0a08f
+set $warning    #ffffff
 
 set $ws1  "1: 1"
 set $ws2  "2: 2"
@@ -47,21 +48,38 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec termite
+bindsym $lmod+Return exec termite
+bindsym XF86LaunchA exec termite
+bindsym mod3+Return exec termite
 
-#file manager
+#lock system
+bindsym XF86Display exec lock.sh
+
+#thunar
 bindsym $mod+f exec termite -e ranger
+bindsym XF86Explorer exec termite -e ranger
 
 # kill focused window
 bindsym $mod+s kill
 
 #change volume
-bindsym XF86AudioLowerVolume exec amixer sset Master 2-
-bindsym XF86AudioRaiseVolume exec amixer sset Master 2+
-bindsym XF86AudioMute exec amixer sset Master toggle
+bindsym XF86AudioLowerVolume exec amixer sset Master 3-
+bindsym XF86AudioRaiseVolume exec amixer sset Master 3+
+bindsym XF86AudioMute exec amixer sset Master toggle && amixer sset Headphone on && amixer sset Speaker on
+bindsym XF86AudioMicMute exec amixer sset Capture toggle
+ 
+#backlight control
+bindsym XF86MonBrightnessUp exec xbacklight +3
+bindsym XF86MonBrightnessDown exec xbacklight -3
 
 # start dmenu (a program launcher)
-#bindsym $mod+r exec i3-dmenu-desktop  #-nb "#161614" -nf "#a0a089" -sb "#a0a08c" -sf "#161614"
-bindsym $mod+r exec j4-dmenu-desktop --dmenu='dmenu -i  -nb "#161614" -nf "#a0a089" -sb "#a0a08c" -sf "#161614" -h 17'
+#bindsym $mod+r exec i3-dmenu-desktop -nb "#161614" -nf "#a0a089" -sb "#a0a08c" -sf "#161614"
+#bindsym $mod+r exec j4-dmenu-desktop --dmenu='dmenu -nb "#161614" -nf "#a0a089" -sb "#a0a08c" -sf "#161614" -h 18 -i -o 80'
+#bindsym $mod+r exec rofi
+#bindsym $mod+r exec dmenu.sh
+#bindsym $mod+r exec rofi -show run -font "Terminus 14" -fg "#a0a0a0" -bg "#17181a" -i -lines 8 -width 30 -bw 5 -hide-scrollbar
+#bindsym XF86Search exec j4-dmenu-desktop --dmenu='dmenu -nb "#161614" -nf "#a0a089" -sb "#a0a08c" -sf "#161614" -h 18 -i'
+bindsym $mod+r exec rofi -show run -terminal termite -lines 3 -eh 2 -width 100 -padding 450 -opacity 90 -bw 0 -bc "#2f343f" -bg "#2f343f" -hlbg "#2f343f" -hlfg "#ffffff" -fg "#adadad" -font "Terminus 24"
 # -w 1000 -h 38 -x 183 -y 300
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -73,11 +91,10 @@ bindsym $mod+e focus down
 bindsym $mod+u focus up
 bindsym $mod+i focus right
 
-#left hand lazy focus
-bindsym mod1+Shift+a focus left
-bindsym mod1+Shift+r focus down
-bindsym mod1+Shift+w focus up
-bindsym mod1+Shift+s focus right
+bindsym $mod+Shift+a focus left
+bindsym $mod+Shift+r focus down
+bindsym $mod+Shift+w focus up
+bindsym $mod+Shift+s focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -119,9 +136,14 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+c focus parent
+bindsym $mod+Shift+c focus parent
  
 # focus the child container
 #bindsym $mod+d focus child
+
+# workspace next/prev
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -148,11 +170,11 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+p reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+p restart
+#bindsym $mod+Shift+p restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+f exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+f exec "i3-nagbar -t warning -m 'Exit i3?' -b 'EVAC NOW!!!' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -176,6 +198,7 @@ mode "resize" {
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
+        bindsym Tab mode "default"
 }
 
 bindsym $mod+p mode "resize"
@@ -189,29 +212,33 @@ client.urgent           $warning    $warning   $foreground $warning
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-#   status_command    i3status
-   status_command    i3blocks
+    #status_command    i3status
+    status_command    i3blocks
     position          top
     workspace_buttons yes
-    mode hide
-    hidden_state hide
-    modifier Mod4
+
+    #hide bare
+    #mode hide
+    #hidden_state hide
+    #modifier Mod1
+    #height 14
+
     #font -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
-    font pango: terminus 8
+    font pango: Terminesspowerline, Termsyn.Icons 8 
     colors {
         background $background
-        statusline $primary
+        statusline #a0a094
         
         # Colors go <border> <background> <text> <indicator>
-        focused_workspace $background $background $primary
-        active_workspace $background $background #646464
-        inactive_workspace $background $background #646464
-        urgent_workspace $background $background #fc0000   
-    }
+        focused_workspace $gray $gray $foreground
+        active_workspace $background $background $foreground
+        inactive_workspace $background $background $foreground
+        urgent_workspace $primary $primary $background
+           }
 }
 
 #removes window titles
-for_window [class=".*"] border pixel 1
-gaps inner 10
-gaps outer 0
+for_window [class=".*"] border pixel 3
+gaps inner 15
+gaps outer 10
 smart_borders no_gaps
