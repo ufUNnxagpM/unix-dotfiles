@@ -21,8 +21,20 @@ my $status;
 my $percent;
 my $full_text;
 my $short_text;
-my $whichbat;
+my $intbat;
 my $full;
+my $threequarters;
+my $half;
+my $quarter;
+my $empty;
+
+#declare battery percentage levels
+$full = 100;
+$threequarters = 63;
+$half = 33;
+$quarter = 75;
+$empty = 30;
+
 # read the first line of the "acpi" command output
 open (ACPI, 'acpi -b |') or die "Can't exec acpi: $!\n";
 $acpi = <ACPI>;
@@ -34,8 +46,7 @@ if ($acpi !~ /: (\w+), (\d+)%/) {
 
 $status = $1;
 $percent = $2;
-$whichbat = 0;
-$full = 0;
+$intbat = 0;
 
 #lazy way of enabling dual battery support
 #this switches battery data if the first one dies
@@ -49,70 +60,63 @@ if ($acpi !~ /: (\w+), (\d+)%/) {
 }
 $status = $1;
 $percent = $2;
-$whichbat = 1;
+$intbat = 1;
 }
+#if $intbat=1 that means the internal battery is being used
 
-if($percent > 90) { $full=1; }
 #Identify battery in output eventually gets overwritten by icons
-if ($whichbat) {
+if ($intbat) {
         $full_text = 'Int '
 } else {
         $full_text = 'Ext '
 }
 
-#shows when fully charged (usually shows int battery at ~95% without this) helps avoid clutter
-if ($full_text eq 'Int ' && $full && $status ne 'Discharging') {
-        $full_text= 'Full';         
+#shows when fully charged (usually shows "int battery at ~95%") helps avoid clutter
+if ($full_text eq 'Int ' && $percent > 90 && $status ne 'Discharging') {
+        $full_text= '  Charged';         
         $short_text = $full_text;
         print "$full_text\n";
         print "$short_text\n";
         print "#A8FF00\n";
         exit 0;
-
 }
+
 #icon for charging/discharge or if battery is really low or full and to identify which battery
-if ($percent > 92) {
-	$full_text = '⮏ ';
-        #$full_text .= 'Full ';
-} elsif ($status eq 'Charging') {
-	$full_text = '⮒ ';
-        #$full_text .= 'Chr '; 
-} elsif ($status eq 'Discharging' && $whichbat) {
-	$full_text = '⮐ ';
-} elsif ($status eq 'Discharging') {
-	$full_text = '⮑ ';
-        #$full_text .= 'Bat ';
+if ($percent < $empty && $intbat) {
+	$full_text = ' ';
+} elsif ($percent < $quarter && $intbat) {
+	$full_text = ' ';
+} elsif ($percent < $half) {
+	$full_text = ' ';
+} elsif ($percent < $threequarters) {
+	$full_text = ' ';
+} elsif ($percent < $full) {
+	$full_text = ' ';
 } 
+
+#ignores percentage based icons if charging
+#if ($status eq 'Charging') {
+#       $full_text = '⮒ ';
+#       $short_text = $full_text;
+#}
+#this has been replaced in favor of coloring the battery yellow to retain percentage based icons
 
 #adds the percent of battery
 $full_text .= "$percent%";
 
 $short_text = $full_text;
 
-if ($acpi =~ /(\d\d:\d\d):/) {
-	$full_text .= " ($1)";
-}
+#this adds the estimated time to die/charge
+#if ($acpi =~ /(\d\d:\d\d):/) {
+#	$full_text .= " ($1)";
+#}
 
 # print text
 print "$full_text\n";
 print "$short_text\n";
 
-# consider color and urgent flag only on discharge
-if ($status eq 'Discharging' && $whichbat) {
-
-	if ($percent < 20) {
-		print "#FF0000\n";
-	} elsif ($percent < 40) {
-		print "#FFAE00\n";
-	}# elsif ($percent < 60) {
-#		print "#FFF600\n";
-#	} elsif ($percent < 85) {
-#		print "#A8FF00\n";
-#	}
-
-#	if ($percent < 5) {
-#		exit(33);
-#	}
-}
+#add coloring to output
+if ($intbat && $status eq 'Discharging' && $percent < $empty) { print "#FF0000\n"; } #for very low battery
+elsif ($status eq 'Charging') { print "#FFFF00\n";} #for charging
 
 exit(0);
