@@ -1,0 +1,28 @@
+let defaultengine="duckduckgo"
+let hintcharacters="qwfpgarstdzxcvb"
+map e scrollDown
+map u scrollUp
+map i scrollRight
+map n scrollLeft
+map a scrollLeft
+map r scrollDown
+map w scrollUp
+map s scrollRight
+map l previousTab
+map y nextTab
+map h scrollPageDown
+map j scrollPageUp
+map k nextSearchResult
+map K previousSearchResult
+map , closeTab
+map . closeTab
+map d closeTab
+map I goForward
+map S goForward
+map N goBack
+map A goBack
+map ; yankDocumentURL
+map R reloadTab
+map ' openCommandBar
+map U zoomPageIn
+map E zoomPageOut

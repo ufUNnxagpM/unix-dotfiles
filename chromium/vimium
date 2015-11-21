@@ -1,0 +1,118 @@
+# Insert your prefered key mappings here.
+#map e scrollDown
+#map u scrollUp
+#map E scrollPageDown
+#map U scrollPageUp
+#map n scrollRight
+#map i scrollLeft
+#map N goBack
+#map I goForward
+#map d removeTab
+#map D restoreTab
+#map f enterFindMode
+;;; Vimium config
+;;; Colemak-vim/Colemak-evil-like
+;;; Instructions: Paste into vimium "Custom key mappings"
+unmap d
+unmap f
+unmap F
+unmap gi
+unmap h
+unmap H
+unmap i
+unmap I
+unmap j
+unmap J
+unmap k
+unmap K
+unmap L
+umnap n
+unmap N
+unmap O
+unmap r
+unmap t
+unmap T
+unmap u
+unmap x
+unmap X
+unmap y
+unmap Y
+unmap yy
+unmap yf
+unmap yt
+map X enterInsertMode
+map q focusInput
+#basic navigation
+map u scrollUp
+map e scrollDown
+map n scrollLeft
+map i scrollRight
+#page up, page down
+#map j scrollFullPageUp
+#map k scrollFullPageDown
+#map f scrollPageUp
+#map t scrollPageDown
+#too huge a jump
+map j scrollFullPageUp
+map h scrollFullPageDown
+#tab left, right
+map l previousTab
+map y nextTab
+#back, forward
+map N goBack
+#map L goBack
+map I goForward
+#map I goForward
+##e second page up
+# #basic navigation
+# map y scrollUp
+# map N scrollLeft
+# map i scrollDown
+# map U scrollRight
+# #page up, page down
+# map u scrollPageUp
+# map e scrollPageUp
+# map n scrollPageDown
+# #too huge a jump
+# #map U scrollFullPageUp
+# #map E scrollFullPageDown
+# #tab left, right
+# map h previousTab
+# map o nextTab
+# #back, forward
+# map l goBack
+# map L goBack
+# map j goForward
+# map J goForward
+##########
+#find
+map k performFind
+map K performBackwardsFind
+#search tab
+map b Vomnibar.activateTabSelection
+##########
+#follow links
+map f LinkHints.activateMode
+map F LinkHints.activateModeToOpenInNewTab
+#open url
+map o Vomnibar.activate
+map t Vomnibar.activateInNewTab
+#map b Vomnibar.activate
+#map r Vomnibar.activateInNewTab
+map p openCopiedUrlInNewTab
+map P openCopiedUrlInCurrentTab
+##########
+#close tab
+map d removeTab
+map D restoreTab
+#copy
+map ; copyCurrentUrl
+#map ca LinkHints.activateModeToCopyLinkUrl
+#map c copyCurrentUrl
+#map C LinkHints.activateModeToCopyLinkUrl
+map r reload
+#duplicates tab in new window
+#map gw duplicateTab
+#############
+#marks
+map ' Marks.activateGotoMode
