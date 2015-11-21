@@ -1,0 +1,55 @@
+# Darch Theme
+# Author: Gleidson Echeli <gleidson.echeli@gmail.com>
+
+# Messages (ie: shutdown)
+msg_color               #ffffff
+msg_font                Anonymous Pro:size=30
+msg_x                   50%
+msg_y                   10%
+msg_shadow_color        #ffffff
+msg_shadow_xoffset      0
+msg_shadow_yoffset      0
+
+# valid values: stretch, tile
+background_style        stretch
+background_color        #000000
+
+# Input controls
+input_panel_x           50%
+input_panel_y           60%
+input_name_x            575
+input_name_y            330
+input_font          	Anonymous Pro:size=16
+input_fgcolor           #000000
+input_color             #ffffff
+input_shadow_color      #ffffff
+input_shadow_xoffset 0
+input_shadow_yoffset 0
+
+# Username / password request
+username_font          	Anonymous Pro:size=16
+username_color        	#ffffff
+# souradnice username_msg
+username_x              475
+username_y              330
+# souradnice password_msg
+password_x              475
+password_y              330
+username_shadow_color   #ffffff
+username_shadow_xoffset 0
+username_shadow_yoffset 0
+
+username_msg            username:
+password_msg            password:
+
+welcome_msg             Do No Harm
+welcome_x               475
+welcome_y               300
+welcome_color           #ffffff
+welcome_font            Anonymous Pro:size=30:bold
+
+session_font            Anonymous Pro:size=8
+session_color           #000000
+session_msg
+session_x               0%
+session_y               92%
