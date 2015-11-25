@@ -82,7 +82,7 @@ bindsym XF86AudioMute exec amixer sset Master toggle
 #bindsym $mod+r exec i3-dmenu-desktop  #-nb "#161614" -nf "#a0a089" -sb "#a0a08c" -sf "#161614"
 #bindsym $mod+r exec j4-dmenu-desktop --dmenu='dmenu -i  -nb "#161614" -nf "#a0a089" -sb "#a0a08c" -sf "#161614" -h 17'
 #bindsym $mod+r exec rofi -show run -font "Terminus 18" -fg "#c79595" -bg "#faf8f2" -i -lines 8 -width 30 -bw 5 -hide-scrollbar -bc "#95c7ae" -bg-active "#95c7ae" -hlbg "#95c7ae" # -hlbg "#95c7ae"  -hlbg "#95c7ae"  
-bindsym $mod+r exec rofi -show run -terminal termite -lines 3 -eh 2 -width 100 -padding 450 -opacity 90 -bw 0 -bc "#2f343f" -bg "#2f343f" -hlbg "#2f343f" -hlfg "#c79595" -fg "#95c7ae" -font "Terminus 24"
+bindsym $mod+r exec rofi -show run -terminal termite -lines 3 -eh 2 -width 100 -padding 620 -opacity 90 -bw 0 -bc "#2f343f" -bg "#2f343f" -hlbg "#2f343f" -hlfg "#c79595" -fg "#95c7ae" -font "Terminus 24"
 # -w 1000 -h 38 -x 183 -y 300
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -142,7 +142,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+c focus parent
  
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+Shift+c focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -169,9 +169,9 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+p reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+p restart
+#bindsym $mod+Shift+p restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+f exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -197,28 +197,44 @@ mode "resize" {
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
+        bindsym Tab mode "default"
+}
+
+mode "gaps" {
+        bindsym u gaps inner all minus 2
+        bindsym l gaps outer all minus 2
+        bindsym e gaps inner all plus 2
+        bindsym n gaps outer all plus 2
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Tab    mode "default"
 }
 
 bindsym $mod+p mode "resize"
+bindsym $mod+w mode "gaps"
 
 # colors                BORDER      BACKGROUND TEXT        INDICATOR
-client.focused          $primary    $primary   $background $tertiary
-client.focused_inactive $gray       $gray      $foreground $gray
-client.unfocused        $gray       $gray      $background $gray
-client.urgent           $warning    $warning   $foreground $warning  
+client.focused          $primary    $primary   $background $warning
+client.focused_inactive $warning    $warning   $foreground $warning
+client.unfocused        $warning    $warning   $background $warning
+client.urgent           $gray       $gray      $foreground $gray  
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    i3bar_command     i3bar  
 #   status_command    i3status
-   status_command    i3blocks
+    status_command    i3blocks
     position          top
     workspace_buttons yes
+    tray_output none #replaced in favor of custom scripts for the few programs that utilize this (mainly for color matching)
     #mode hide
     #hidden_state hide
     #modifier Mod4
     #font -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
-    font pango: Terminus, uushi 8
+    font pango: Terminus, uushi, fontawesome 8
     colors {
         background $background
         statusline $warning
@@ -236,3 +252,4 @@ for_window [class=".*"] border pixel 4
 gaps inner 10
 gaps outer 10
 smart_borders no_gaps
+smart_gaps on

@@ -1,17 +1,19 @@
 #!/bin/sh
+
 #check variable counts the word playing in output of mpc
-check=$(mpc | grep -c playing)
+playcheck=$(mpc | grep -c playing)
+pausecheck=$(mpc | grep -c paused)
+
 mout=$(mpc | sed -n '1p')
-if [ $check -gt 0 ]
-then
-mout="⮓ $mout " #"<span foreground="#95c7ae"> hello </span>"
-elif [ $(pidof ncmpcpp) -gt 0 ] #use this option if you only want it to display when ncmpcpp is open
-#elif [ $(mpc | grep -c paused) -gt 0 ] #use this option if you want it display at all times
-then
+
+if [ $playcheck -gt 0 ]; then
+mout="⮓ $mout " 
+elif [ $pausecheck -gt 0 -a $(pidof ncmpcpp) -gt 0 ]; then
 mout="⮔ $mout "
 else
-mout=" "
+mout=""
 fi
+
 echo $mout
 
 case $BLOCK_BUTTON in
