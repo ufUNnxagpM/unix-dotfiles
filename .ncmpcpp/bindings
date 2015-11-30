@@ -184,14 +184,14 @@ def_key "h"
 #def_key "enter"
 #  press_enter
 #
-#def_key "delete"
-#  delete_playlist_items
+def_key "d"
+  delete_playlist_items
 #
-#def_key "delete"
-#  delete_browser_items
+def_key "d"
+  delete_browser_items
 #
-#def_key "delete"
-#  delete_stored_playlist
+def_key "d"
+  delete_stored_playlist
 #
 def_key "i"
   next_column
@@ -406,8 +406,8 @@ def_key "K"
 #def_key "g"
 #  jump_to_position_in_song
 #
-#def_key "l"
-#  show_lyrics
+def_key "L"
+  show_lyrics
 #
 #def_key "v"
 #  reverse_selection
