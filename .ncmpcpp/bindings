@@ -487,8 +487,8 @@ def_key "L"
 #def_key "!"
 #  toggle_separators_between_albums
 #
-#def_key "L"
-#  toggle_lyrics_fetcher
+def_key "f"
+  toggle_lyrics_fetcher
 #
 #def_key "F"
 #  toggle_fetching_lyrics_in_background
