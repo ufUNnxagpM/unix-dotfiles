@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ $(pidof openvpn) -gt 0 ] ; then
+echo "⮪ VPN"
+echo "fffc00"
+echo "fffc00"
+else 
+echo ""
+fi
+
+exit 0 

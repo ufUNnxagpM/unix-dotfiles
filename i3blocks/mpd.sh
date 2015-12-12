@@ -7,7 +7,7 @@ pausecheck=$(mpc | grep -c paused)
 mout=$(mpc | sed -n '1p')
 
 if [ $playcheck -gt 0 ]; then
-mout="⮓ $mout" 
+mout="⮓ $mout" 
 elif [ $pausecheck -gt 0 -a $(pidof ncmpcpp) -gt 0 ]; then
 mout="⮔ $mout"
 else
