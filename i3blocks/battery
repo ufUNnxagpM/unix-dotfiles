@@ -44,7 +44,7 @@ $extpercent = $2;
 
 #lazy way of enabling dual battery support
 #this switches battery data if the first one dies
-open (ACPI, 'acpi -b | grep -n 1 |') or die "Can't exec acpi: $!\n";
+open (ACPI, 'acpi -b | grep "Battery 1" |') or die "Can't exec acpi: $!\n";
 $acpi = <ACPI>;
 close(ACPI);
 if ($acpi !~ /: (\w+), (\d+)%/) {
@@ -92,6 +92,6 @@ print "$short_text\n";
 
 #add coloring to output
 if ($status eq 'Charging') {print "#FFFF00\n";} #for charging
-elsif ($percent < 20) {print "#FF0000\n";}
+elsif ($percent < 10) {print "#FF0000\n";}
 
 exit(0);
