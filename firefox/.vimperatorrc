@@ -1,4 +1,4 @@
-" Matts's vimperatorrc for colemak
+" Matt's vimperatorrc for colemak
 colorscheme light
 " rebind to wasd like scrolling
 nnoremap u 4k

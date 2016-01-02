@@ -91,7 +91,7 @@ print "$full_text\n";
 print "$short_text\n";
 
 #add coloring to output
-if ($status eq 'Charging') {print "#FFFF00\n";} #for charging
+if ($status eq 'Charging') {print "#9acd32\n";} #for charging
 elsif ($percent < 10) {print "#FF0000\n";}
 
 exit(0);
