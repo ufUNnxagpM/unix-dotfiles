@@ -2,24 +2,6 @@ set $mod mod1
 
 font pango:Terminus 8
 
-#Grayscale colors
-#set $background #17181a
-#set $foreground #a0a0a0
-#set $gray       #262622
-#set $primary    #ffffff
-#set $secondary  #a0a08c
-#set $tertiary   #a0a089
-#set $warning    #a0a08f
-
-#Molokai colors
-#set $background #121112
-#set $foreground #d0cfd0
-#set $gray       #262622
-#set $primary    #387bab
-#set $secondary  #98ff19
-#set $tertiary   #ff9926
-#set $warning    #d74083
-
 #sketch colors
 set $background #f5e9d3
 set $foreground #574921
@@ -192,18 +174,19 @@ mode "gaps" {
 bindsym $mod+p mode "resize"
 bindsym $mod+w mode "gaps"
 
-# colors                BORDER      BACKGROUND TEXT        INDICATOR
-client.focused          $primary    $primary   $background $background
+# colors                BORDER         BACKGROUND    TEXT        INDICATOR
+client.focused          $primary       $primary      $background $background
 client.focused_inactive $background    $background   $foreground $background
 client.unfocused        $background    $background   $background $background
-client.urgent           $gray       $gray      $foreground $gray  
+client.urgent           $gray          $gray         $foreground $gray  
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    i3bar_command     i3bar  
+    i3bar_command     i3bar -t  
 #   status_command    i3status
     status_command    i3blocks
+    height            100
     position          top
     workspace_buttons yes
     tray_output none #replaced in favor of custom scripts for the few programs that utilize this (mainly for color matching)
@@ -216,11 +199,11 @@ bar {
         background $background
         statusline $primary
         
-        # Colors go <border> <background> <text> <indicator>
-        focused_workspace $primary $primary $background
-        active_workspace $background $background $primary
-        inactive_workspace $background $background $primary
-        urgent_workspace $warning $warning $primary
+        # Colors go                  <border>    <background> <text> <indicator>
+        focused_workspace            $primary    $primary     $background
+        active_workspace             $background $background  $primary
+        inactive_workspace           $background $background  $primary
+        urgent_workspace             $warning    $warning     $primary
     }
 }
 
@@ -228,5 +211,3 @@ bar {
 for_window [class=".*"] border pixel 4
 gaps inner 30
 gaps outer 5
-#smart_borders no_gaps
-#smart_gaps on
