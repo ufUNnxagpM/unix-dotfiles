@@ -8,7 +8,7 @@ mout=$(mpc | sed -n '1p')
 
 if [ $playcheck -gt 0 ]; then
 mout="⮓ $mout" 
-elif [ $pausecheck -gt 0 -a $(pidof ncmpcpp) -gt 0 ]; then
+elif [ $pausecheck -gt 0 -a $(pidof ncmpcpp | grep -c '') -gt 0 ]; then
 mout="⮔ $mout"
 else
 mout=""
