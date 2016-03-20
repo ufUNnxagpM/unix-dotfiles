@@ -1,0 +1,44 @@
+"" Ashes colorscheme for vimperator
+
+highlight! CmdLine color: #95c7ae; background: #faf8f2;
+highlight! CmdLine>* font-family: monospace; font-size: 8pt; height: px;
+highlight! Normal color: #AAABAD; background: #faf8f2; font-family: monospace; font-size: 8pt;
+highlight! StatusLine color: #AAABAD; background: #faf8f2; font-family: monospace; font-size: 8pt;
+
+highlight! Bell border: none; background: #faf8f2;
+highlight! Boolean color: #aaabad;
+highlight! CompDesc width: auto; color: #AAABAD;
+highlight! CompItem>* height: auto; padding: 0 8px;
+highlight! CompItem background: #faf8f2;
+highlight! CompItem[selected] color: #95c7ae; background: #faf8f2;
+highlight! CompTitle background: #faf8f2; font-family: monospace; font-size: 10pt;
+highlight! CompTitle>* color: #95c7ae; padding: 2px 8px;
+highlight! ContentSeparator display: -moz-box;
+
+highlight! Disabled color: #aaabad;
+highlight! Enabled color: #AAABAD;
+highlight! ErrorMsg color: #F56C66; font-family: monospace; font-size: 10pt;
+highlight! Filter color: #ffffff; background: #b99b48;
+highlight! FrameIndicator background: #AAABAD; opacity: 0.5; z-index: 999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
+
+highlight! HelpNote color: #b99b48;
+highlight! HelpWarning color: #b99b48;
+
+highlight! Hint font-family: monospace; font-size: 10pt; color: #ffffff; background: #b99b48; padding: 1px;
+highlight! HintActive color: #AAABAD; background: #b99b48;
+highlight! HintElem background: transparent;
+highlight! HintImage opacity: 0.5;
+
+highlight! InfoMsg color: #AAABAD;
+highlight! Keyword color: #AAABAD;
+highlight! LineNr color: #aaabad;
+highlight! NonText color: #aaabad;
+
+highlight! ModeMsg color: #AAABAD; background: transparent; padding: 0 8px; font-family: monospace; font-size: 10pt;
+highlight! MoreMsg color: #aaabad; font-family: monospace; font-size: 10pt;
+
+highlight! PromptText color: #AAABAD; padding-top: 4px;
+highlight! Question color: #AAABAD;
+
+highlight! Title color: #95c7ae;
+highlight! WarningMsg color: #AAABAD; 

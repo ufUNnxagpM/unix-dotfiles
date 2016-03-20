@@ -1,7 +1,6 @@
 " Matts's vimperatorrc for colemak
-colorscheme twilylight
-js statusline.setVisibility(statusline.setVisibility.TOGGLE)
-
+colorscheme solarized
+set slv=hidden
 " rebind to wasd like scrolling
 nnoremap u 6k
 nnoremap e 6j
@@ -45,7 +44,7 @@ nnoremap r 4j
 nnoremap s 2l
 nnoremap a 2h
 " keep winopen functionality
-nnoremap W w
+nnoremap W w 
 " back in browser history
 nnoremap A :back<CR>
 nnoremap S :forward<CR>
@@ -55,3 +54,4 @@ nnoremap C d
 " move to the tab left/right of the current one
 nnoremap x <C-p>
 nnoremap c <C-n>
+
