@@ -1,0 +1,1 @@
+rofi -show run  -terminal termite -lines 3 -eh 2 -width 100 -padding 600 -opacity 90 -bw 0 -font "Terminus 24" -color-window "#073642, #002b36, #073642" -color-normal "#073642, #93a1a1, #073642, #073642, #48cfc5" -color-active "#073642, #48cfc5, #073642, #073642, #48cfc5" -color-urgent "#073642, #fc0000, #073642, #073642, #fc0000"
