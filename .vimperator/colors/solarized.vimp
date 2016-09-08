@@ -1,0 +1,46 @@
+"" vimperator colorscheme twily
+""
+"" ~/.vimperator/colors/twily.vimp
+
+highlight! CmdLine color: #073642; background: #2aa198; 
+highlight! CmdLine>* font-family: monospace; font-size: 8pt; height: 0px;
+highlight! Normal color: #073642; background: #2aa198; font-family: monospace; font-size: 8pt;
+highlight! StatusLine color: #073642; background: #2aa198; font-family: monospace; font-size: 8pt;
+
+highlight! Bell border: none; background: #2aa198;
+highlight! Boolean color: #073642;
+highlight! CompDesc width: auto; color: #073642;
+highlight! CompItem>* height: auto; padding: 0 8px;
+highlight! CompItem background: #2aa198;
+highlight! CompItem[selected] color: #ffffff; background: #2aa198;
+highlight! CompTitle background: #2aa198; font-family: terminus; font-size: 10pt;
+highlight! CompTitle>* color: #073642; padding: 2px 8px;
+highlight! ContentSeparator display: -moz-box;
+
+highlight! Disabled color: #073642;
+highlight! Enabled color: #073642;
+highlight! ErrorMsg color: #F56C66; font-family: monospace; font-size: 10pt;
+highlight! Filter color: #2aa198; background: #073642;
+highlight! FrameIndicator background: #073642; opacity: 0.5; z-index: 999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
+
+highlight! HelpNote color: #27282B;
+highlight! HelpWarning color: #27282B;
+
+highlight! Hint font-family: terminus; font-size: 10pt; color: #073642; background: #2aa198; padding: 1px;
+highlight! HintActive color: #2aa198; background: #073642;
+highlight! HintElem background: transparent;
+highlight! HintImage opacity: 0.5;
+
+highlight! InfoMsg color: #073642;
+highlight! Keyword color: #073642;
+highlight! LineNr color: #073642;
+highlight! NonText color: #073642;
+
+highlight! ModeMsg color: #073642; background: transparent; padding: 0 8px; font-family: monospace; font-size: 10pt;
+highlight! MoreMsg color: #073642; font-family: terminus; font-size: 10pt;
+
+highlight! PromptText color: #073642; padding-top: 4px;
+highlight! Question color: #073642;
+
+highlight! Title color: #ffffff;
+highlight! WarningMsg color: #073642;
