@@ -11,4 +11,3 @@ pactl set-default-sink alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.anal
 #skype &
 compton &
 exec i3
-
