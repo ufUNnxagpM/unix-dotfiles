@@ -1,0 +1,240 @@
+# ~/.i3/config
+# i3 config template
+# Base16 Twilight by David Hart (http://hart-dev.com)
+# template by Matt Parnell, @parnmatt
+set $mod mod1
+set $1mod mod5
+
+font pango:Terminus 8
+
+set $base00 #1e1e1e
+set $base01 #323537
+set $base02 #464b50
+set $base03 #5f5a60
+set $base04 #838184
+set $base05 #a7a7a7
+set $base06 #c3c3c3
+set $base07 #ffffff
+set $base08 #cf6a4c
+set $base09 #cda869
+set $base0A #f9ee98
+set $base0B #8f9d6a
+set $base0C #afc4db
+set $base0D #7587a6
+set $base0E #9b859d
+set $base0F #9b703f
+
+set $ws1  "1: 1"
+set $ws2  "2: 2"
+set $ws3  "3: 3"
+set $ws4  "4: 4"
+set $ws5  "5: 5"
+set $ws6  "6: 6"
+set $ws7  "7: 7"
+set $ws8  "8: 8"
+set $ws9  "9: 9"
+set $ws10 "10: 10"
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec termite
+bindsym $lmod+Return exec termite
+bindsym XF86LaunchA exec termite
+bindsym mod3+Return exec termite
+
+#lock system
+bindsym XF86Display exec lock3.sh
+
+#thunar
+bindsym $mod+f exec termite -e ranger
+bindsym XF86Explorer exec termite -e ranger
+
+# kill focused window
+bindsym $mod+s kill
+
+#change volume
+bindsym XF86AudioLowerVolume exec amixer sset Master 3-
+bindsym XF86AudioRaiseVolume exec amixer sset Master 3+
+bindsym XF86AudioMute exec amixer sset Master toggle && amixer sset Headphone on && amixer sset Speaker on
+bindsym XF86AudioMicMute exec amixer sset Capture toggle
+
+#backlight control
+bindsym XF86MonBrightnessUp exec xbacklight +3
+bindsym XF86MonBrightnessDown exec xbacklight -3
+
+#program launcher
+bindsym $mod+r exec rofi -show run -terminal termite -lines 3 -eh 2 -width 100 -padding 450 -opacity 90 -bw 0 -bc "#2f343f" -bg "#2f343f" -hlbg "#2f343f" -hlfg "#ffffff" -fg "$base0D" -font "Terminus 24"
+
+# change focus
+bindsym $mod+n focus left
+bindsym $mod+e focus down
+bindsym $mod+u focus up
+bindsym $mod+i focus right
+
+bindsym $mod+Shift+a focus left
+bindsym $mod+Shift+r focus down
+bindsym $mod+Shift+w focus up
+bindsym $mod+Shift+s focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+n move left
+bindsym $mod+Shift+e move down
+bindsym $mod+Shift+u move up
+bindsym $mod+Shift+i move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+b split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+t fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+#bindsym $mod+d layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+x layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+c focus parent
+bindsym $mod+Shift+c focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# workspace next/prev
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+p reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+#bindsym $mod+Shift+p restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+f exec "i3-nagbar -t warning -m 'Exit i3?' -b 'EVAC NOW!!!' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym n resize shrink width 1 px or 1 ppt
+        bindsym u resize grow height 1 px or 1 ppt
+        bindsym e resize shrink height 1 px or 1 ppt
+        bindsym i resize grow width 1 px or 1 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Tab mode "default"
+}
+
+mode "gaps" {
+       bindsym u gaps inner all plus 2
+       bindsym e gaps inner all minus 2
+       bindsym l gaps outer all plus 2
+       bindsym n gaps outer all minus 2
+
+       # back to normal: Enter or Escape
+       bindsym Return mode "default"
+       bindsym Escape mode "default"
+       bindsym Tab mode "default"
+
+}
+
+bindsym $mod+p mode "resize"
+bindsym $mod+w mode "gaps"
+
+client.focused $base0D $base0D $base00 $base01
+client.focused_inactive $base02 $base02 $base03 $base01
+client.unfocused $base02 $base02 $base03 $base01
+client.urgent $base02 $base08 $base07 $base08
+
+bar {
+    ## remember to add your favourite status bar, i.e.,
+    # status_command i3status
+    status_command    i3blocks
+    position          top
+    workspace_buttons yes
+
+    separator_symbol 
+    #hide bare
+    #mode hide
+    #hidden_state hide
+    #modifier Mod1
+    #height 14
+
+    tray_output none
+    #font -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
+    font pango: Terminus, fontawesome, Termsyn.Icons 8
+    colors {
+        separator $base03
+        background $base01
+        statusline $base05
+        focused_workspace $base0C $base0D $base00
+        active_workspace $base02 $base02 $base07
+        inactive_workspace $base01 $base01 $base03
+        urgent_workspace $base08 $base08 $base07
+    }
+}
+
+#removes window titles
+for_window [class=".*"] border pixel 5
+gaps inner 30
+gaps outer 5
+smart_borders no_gaps
+

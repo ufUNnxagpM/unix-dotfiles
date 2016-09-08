@@ -1,0 +1,25 @@
+[options]
+font=Terminus 8
+
+[colors]
+cursor        =#574921
+foreground    =#574921
+background    =rgba(255,255,255,.85)
+
+color0 =#c7ae95
+color1 =#c7c795
+color2 =#aec795
+color3 =#95c7ae
+color4 =#95aec7
+color5 =#ae95C7
+color6 =#c795ae
+color7 =#c79595
+color8 =#c7ae95
+color9 =#c7c795
+color10 =#aec795
+color11 =#95c7ae
+color12 =#95aec7
+color13 =#ae95C7
+color14 =#c795ae
+color15 =#c79595
+                
