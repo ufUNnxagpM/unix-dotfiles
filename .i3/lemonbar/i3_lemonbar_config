@@ -18,11 +18,11 @@ upd_mail=600                        # Mail check update
 upd_mpd=5                           # MPD song update
 
 # color definitions 
-color_back="#e6073642"              # Default background
+color_back="#002b36"              # Default background
 color_fore="#FFC5C8C6"              # Default foreground
 color_head="#FF859900"              # Background for first element
 color_sec_b1="#FF002b36"            # Background for section 1
-color_sec_b2="#FF0b5365"            # Background for section 2
+color_sec_b2="#FF073642"            # Background for section 2
 color_sec_b3="#FFea7bd7"            # Background for section 3
 color_icon="#FF979997"              # For icons
 color_mail="#FFCE935F"              # Background color for mail alert
