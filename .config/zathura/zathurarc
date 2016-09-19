@@ -6,3 +6,11 @@ map u scroll up
 map n scroll left
 map . zoom in
 map , zoom out
+set recolor true
+set recolor-darkcolor "#eee8d5"
+set recolor-lightcolor "#002b36"
+set statusbar-bg "#073642"
+set statusbar-fg "#eee8d5"
+set default-bg "#002b36
+set window-title-basename "true"
+set selection-clipboard "clipboard"
