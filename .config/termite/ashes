@@ -1,10 +1,10 @@
 [options]
-font=Terminus 8
+font=Pragmata Pro for Powerline 10
 
 [colors]
 cursor        =#574921
 foreground    =#574921
-background    =rgba(255,255,255,.85)
+background    =rgba(255,255,255,.9)
 
 color0 =#c7ae95
 color1 =#c7c795

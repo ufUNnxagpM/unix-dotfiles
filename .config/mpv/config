@@ -1,12 +1,63 @@
-#vo=opengl-hq:interpolation:scale=ewa_lanczossharp:cscale=ewa_lanczossharp:tscale=mitchell
-hwdec=vdpau
-sub-codepage=utf8:cp1250
-#embeddedfonts=yes
-#osd-font="Anonymous Pro"
-#osd-font-size=60
-#sub-text-font="Anonymous Pro"
-#sub-text-font-size=40
+#profile=opengl-hq
 stop-screensaver = "yes"
-alang = en, jp
 cache-default=16384
-autofit-larger=90%90%
+
+hls-bitrate=max                         # use max quality for HLS streams
+ytdl-raw-options=format="[protocol!=http_dash_segments][protocol!=rtmp]"
+
+
+#############
+# Subtitles #
+#############
+
+sub-use-margins
+sub-ass-force-margins
+
+demuxer-mkv-subtitle-preroll            # try to correctly show embedded subs when seeking
+sub-auto=fuzzy                          # external subs don't have to match the file name exactly to autoload
+sub-paths=ass:srt:sub:subs:subtitles    # search for external subs in the listed subdirectories
+embeddedfonts=yes                       # use embedded fonts for SSA/ASS subs
+sub-fix-timing=no                       # do not try to fix gaps (which might make it worse in some cases)
+sub-ass-force-style=Kerning=yes         # allows you to override style parameters of ASS scripts
+
+# the following options only apply to subtitles without own styling (i.e. not ASS but e.g. SRT)
+sub-font="Source Sans Pro Semibold"
+sub-font-size=36
+sub-color="#FFFFFFFF"
+sub-border-color="#FF262626"
+sub-border-size=3.2
+sub-shadow-offset=1
+sub-shadow-color="#33000000"
+sub-spacing=0.5
+
+#############
+# Languages #
+#############
+
+slang=enm,en,eng,de,deu,ger             # automatically select these subtitles (decreasing priority)
+alang=ja,jp,jpn,en,eng,de,deu,ger       # automatically select these audio tracks (decreasing priority)
+
+#########
+# Audio #
+#########
+
+audio-file-auto=fuzzy                   # external audio doesn't has to match the file name exactly to autoload
+audio-pitch-correction=yes              # automatically insert scaletempo when playing with higher speed
+volume-max=200                          # maximum volume in %, everything above 100 results in amplification
+volume=100                              # default volume, 100 = unchanged
+
+#########
+# Video #
+#########
+
+hwdec=vdpau
+vo=opengl-hq
+scale=ewa_lanczossharp
+cscale=ewa_lanczossoft
+dscale=mitchell
+scale-antiring=0.7
+cscale-antiring=0.7
+dither-depth=auto
+correct-downscaling=yes
+sigmoid-upscaling=yes
+deband=yes

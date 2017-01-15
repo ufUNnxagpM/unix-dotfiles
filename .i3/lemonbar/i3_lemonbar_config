@@ -2,15 +2,15 @@
 # i3 panel config. Powerline style.
 
 panel_fifo="/tmp/i3_lemonbar_${USER}"
-geometry="x14+0+0"
-font="terminesspowerline-6"
+geometry="x16+0+0"
+font="DejaVuSansMonoforPowerline-10"
 iconfont="-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
 res_w=$(xrandr | grep "current" | awk '{print $8a}')
 snd_cha=$(amixer get Master | grep "Playback channels:" | awk '{if ($4 == "") {printf "%s: Playback", $3} else {printf "%s %s: Playback", $3, $4}}')
 
 # Alarm settings
 cpu_alert=75                        # % cpu use
-net_alert=1200                         # K net use
+net_alert=4000                         # K net use
 
 # update setting, in seconds (conky update in i3_lemonbar_conky
 upd_vol=3                           # Volume update
@@ -18,19 +18,19 @@ upd_mail=600                        # Mail check update
 upd_mpd=5                           # MPD song update
 
 # color definitions 
-color_back="#002b36"              # Default background
-color_fore="#FFC5C8C6"              # Default foreground
-color_head="#FF859900"              # Background for first element
-color_sec_b1="#FF002b36"            # Background for section 1
-color_sec_b2="#FF073642"            # Background for section 2
-color_sec_b3="#FFea7bd7"            # Background for section 3
-color_icon="#FF979997"              # For icons
-color_mail="#FFCE935F"              # Background color for mail alert
+color_back="#70DFE2e5"              # Default background
+color_fore="#FF565e65"              # Default foreground
+color_head="#FFae95c7"              # Background for first element
+color_sec_b1="#FF95aec7"            # Background for section 1
+color_sec_b2="#FFc795ae"            # Background for section 2
+color_sec_b3="#FFaec795"            # Background for section 3
+color_icon="#FF565e65"              # For icons
+color_mail="#FFc7ae95"              # Background color for mail alert
 color_chat="#FFCC6666"              # Background color for chat alert
-color_cpu="#FF5F819D"               # Background color for cpu alert
-color_net="#FF5E8D87"               # Background color for net alert
+color_cpu="#FFc7ae95"               # Background color for cpu alert
+color_net="#FFc7ae95"               # Background color for net alert
 color_disable="#FF1D1F21"           # Foreground for disable elements
-color_wsp="#FF637200"               # Background for selected workspace
+color_wsp="#FF95c7ae"               # Background for selected workspace
 
 #default space between sections
 if [ ${res_w} -gt 1024 ]; then
