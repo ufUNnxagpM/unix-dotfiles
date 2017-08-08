@@ -1,4 +1,4 @@
-#profile=opengl-hq
+#profile=opengl-hqj
 stop-screensaver = "yes"
 cache-default=16384
 
@@ -35,7 +35,8 @@ sub-spacing=0.5
 #############
 
 slang=enm,en,eng,de,deu,ger             # automatically select these subtitles (decreasing priority)
-alang=ja,jp,jpn,en,eng,de,deu,ger       # automatically select these audio tracks (decreasing priority)
+#alang=ja,jp,jpn,en,eng,de,deu,ger       # automatically select these audio tracks (decreasing priority)
+alang=en,eng,ja,jp,jpn,en,eng,de,deu,ger       # automatically select these audio tracks (decreasing priority)
 
 #########
 # Audio #
