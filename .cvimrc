@@ -1,4 +1,4 @@
-let defaultengine="duckduckgo"
+let defaultengine="google"
 let hintcharacters="qwfpgarstdzxcvb"
 map e scrollDown
 map u scrollUp
