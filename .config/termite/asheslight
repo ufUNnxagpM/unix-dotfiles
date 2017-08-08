@@ -1,10 +1,11 @@
 [options]
-font=Pragmata Pro for Powerline 10
+font=PragmataProforPowerline 11
 
 [colors]
 cursor        =#574921
 foreground    =#574921
-background    =rgba(255,255,255,.9)
+background    =rgba(243,244,245,.9)
+#background    =#F3F4F5
 
 color0 =#c7ae95
 color1 =#c7c795
