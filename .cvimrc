@@ -1,5 +1,6 @@
 let defaultengine="google"
 let hintcharacters="qwfpgarstdzxcvb"
+set noautofocus
 map e scrollDown
 map u scrollUp
 map i scrollRight
