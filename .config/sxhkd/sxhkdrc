@@ -1,0 +1,178 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+	termite
+
+# program launcher
+super + space
+	tdrop -a -w 1920 -y 1260 -x 960 -h 900  termite
+
+super + r
+	rofi -show run -terminal termite -lines 5 -eh 2 -width 10 -padding 10 -font "xos4 Terminus Regular 14" -theme ~/.config/rofi/themes/android_notification.rasi
+	#rofi -show run -terminal termite -lines 5 -eh 2 -width 20 -padding 10 -opacity 98 -font "TSTAR PRO MEDIUM 22"
+
+#file manager
+super + f
+	termite -e 'ranger'
+
+#volume
+XF86AudioLowerVolume
+	pactl set-sink-volume alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.analog-stereo -5%
+XF86AudioRaiseVolume
+	pactl set-sink-volume alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.analog-stereo +5%
+XF86AudioMute
+	pactl set-sink-mute alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.analog-stereo toggle
+
+#calculator
+XF86Calculator
+	chromium www.wolframalpha.com
+
+# make sxhkd reload its configuration files:
+super + shift + p
+	pkill -USR1 -x sxhkd
+
+#
+# bspwm hotkeys
+#
+
+# quit bspwm normally
+super + Escape
+	bspc quit
+
+# close and kill
+super + {s, shift + s}
+	bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+super + shift + t
+	bspc desktop -l next
+
+# if the current node is automatic, send it to the last manual, otherwise pull the last leaf
+super + j
+	bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
+
+# swap the current node and the biggest node
+super + g
+	bspc node -s biggest
+
+#
+# state/flags
+#
+
+# toggle the window state
+super + {shift + space,t}
+    state={floating,fullscreen}; \
+    bspc query -N -n "focused.$\{state\}" && state=tiled; \
+    bspc node -t "$state"
+
+# set the node flags
+#super + ctrl + {z,x,c}
+	#bspc node -g {locked,sticky,private}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+super + {n,e,u,i}
+	~/.config/bspwm/focus.sh {west,south,north,east}
+	#bspc node -f {west,south,north,east}
+super + shift + {n,e,u,i}
+	~/.config/bspwm/move.sh {west,south,north,east}
+	#euclid_mover {west,south,north,east}
+	
+
+# focus the node for the given path jump
+#super + {p,b,comma,period}
+	#bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous node in the current desktop
+super + {_,shift + }c
+	bspc node -f {next,prev}.local
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+super + {o,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+#balance
+#super + b
+#        bspc -B
+
+#equalize
+#super + shift + b
+        #bspc -E
+
+#euclid balance
+super + l
+	euclid_balancer
+
+#flip
+super + a
+	bspc node @focused:/ --rotate 90
+super + shift + a
+	bspc node @focused:/ --rotate -90 
+
+
+#
+# preselect
+#
+
+# preselect the direction
+super + {v, shift + v}
+	bspc node -p {south,west}
+super + {b, shift + b}
+	bspc node -p {east,north}
+
+# preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+#super + v
+	#bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+#super + v + shift + space
+	#bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+#Use Needsade Script instead
+super + alt + {n,e,u,i}
+	~/.config/bspwm/resize.sh {west,south,north,east}
+
+# expand a window by moving one of its side outward
+#super + alt + {n,e,u,i}
+	#bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+#super + alt + shift + {n,e,u,i}
+	#bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+#super + {Left,Down,Up,Right}
+	#bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#
+# window gaps
+#
+super + {d,h}
+	~/.config/bspwm/gap.sh {+10,-10}

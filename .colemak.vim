@@ -145,7 +145,9 @@ onoremap r i
 "nnoremap ; e|xnoremap ; e|onoremap ; e|
 "nnoremap g; ge|xnoremap g; ge|onoremap g; ge|
 " Folds, etc.
-"nnoremap ; z|xnoremap ; z|
+" nnoremap ; z|xnoremap ; z|
+nnoremap ff zf|xnoremap ff zf|
+" nnoremap ; z|xnoremap ; z|
 
 " Map ; to :
 nnoremap ; :|xnoremap ; :|
