@@ -14,8 +14,13 @@ alias less=$PAGER
 alias pingg='ping -c 3 8.8.8.8'
 alias vu='pactl set-sink-volume alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.analog-stereo +5%'
 alias vd='pactl set-sink-volume alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.analog-stereo -5%'
-alias sizesort='du -m --max-depth 1 | sort -rn'
+alias sizesort='du -m --max-depth 1 | sort -n'
 DEFAULT_USER=$(whoami)
+
+
+function mm() {
+    mpv --no-video --ytdl-format=bestaudio ytdl://ytsearch:"$@"
+}
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
