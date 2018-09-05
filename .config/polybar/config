@@ -3,7 +3,7 @@
 ; throttle-limit = 3
 
 [bar/top]
-monitor = DP-1
+monitor = DisplayPort-0
 width = 100%
 height = 32
 clickareas = 35
@@ -34,7 +34,7 @@ modules-center = bspwm-tmp
 modules-right = volume date
 
 [bar/bottom]
-monitor = DP-1
+monitor = DisplayPort-0
 bottom = true
 width = 100%
 height = 27
