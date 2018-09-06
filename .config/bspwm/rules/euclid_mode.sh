@@ -1,0 +1,15 @@
+#! /bin/sh
+
+fwid=$(bspc query -N -n focused.automatic)
+wid=$1
+class=$2
+instance=$3
+title=$(xtitle "$wid")
+#floats=$(bspc query -N -n .local.floating | wc -l)
+if bspc query -N -n "@/.!automatic" > /dev/null ; then
+    echo "node=@/"
+fi
+if [ -n "$fwid" ] ; then
+			echo "split_dir=east"
+fi
+#window-placer $floats $wid
