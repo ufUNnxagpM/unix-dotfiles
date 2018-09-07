@@ -8,6 +8,20 @@
 " recommended commands for running under Linux console
 " $ export TERM=xterm    # make Backspace and Ctrl-H work correctly
 " $ stty -ixon -ixoff    # make Ctrl+S and Ctrl+Q work correctly
+"
+" turn off mouse scroll
+:nmap <ScrollWheelUp> <nop>
+:nmap <S-ScrollWheelUp> <nop>
+:nmap <C-ScrollWheelUp> <nop>
+:nmap <ScrollWheelDown> <nop>
+:nmap <S-ScrollWheelDown> <nop>
+:nmap <C-ScrollWheelDown> <nop>
+:nmap <ScrollWheelLeft> <nop>
+:nmap <S-ScrollWheelLeft> <nop>
+:nmap <C-ScrollWheelLeft> <nop>
+:nmap <ScrollWheelRight> <nop>
+:nmap <S-ScrollWheelRight> <nop>
+:nmap <C-ScrollWheelRight> <nop>
 
 "
 " Colemak layout:                  |                 QWERTY layout:
@@ -117,6 +131,9 @@ vnoremap <silent> <expr> <S-PageUp> (winheight(0)-1) . "\<C-u>"
 vnoremap <silent> <expr> <S-PageDown> (winheight(0)-1) . "\<C-d>"
 cnoremap <M-j> <PageUp>|
 cnoremap <M-h> <PageDown>|
+nnoremap j <PageUp>
+nnoremap h <PageDown>
+
 
 " Half page up/down
 nnoremap <silent> <expr> <C-u> (winheight(0)/2) . "\<C-u>"
@@ -145,9 +162,7 @@ onoremap r i
 "nnoremap ; e|xnoremap ; e|onoremap ; e|
 "nnoremap g; ge|xnoremap g; ge|onoremap g; ge|
 " Folds, etc.
-" nnoremap ; z|xnoremap ; z|
-nnoremap ff zf|xnoremap ff zf|
-" nnoremap ; z|xnoremap ; z|
+"nnoremap ; z|xnoremap ; z|
 
 " Map ; to :
 nnoremap ; :|xnoremap ; :|
@@ -336,12 +351,12 @@ xnoremap <silent> <S-Space> :<C-u>let b:tmp_var=&sw\|set sw=1\|normal! gv<<CR>:<
 
 " The Tab key is mapped to Escape. Press Shift-Tab to insert a Tab.
 " To minimize Tab use, you can use '<', '>' and ':set autoindent'
-" nnoremap <silent> <Tab> <Esc>:nohlsearch<bar>pclose<CR>|
-" vnoremap <Tab> <Esc><Nul>| " <Nul> added to fix select mode problem
-" inoremap <Tab> <Esc>|
-" nnoremap <S-Tab> i<Tab><Esc><Right>
-" vnoremap <S-Tab> >gv|
-" inoremap <S-Tab> <Tab>|
+nnoremap <silent> <Tab> <Esc>:nohlsearch<bar>pclose<CR>|
+vnoremap <Tab> <Esc><Nul>| " <Nul> added to fix select mode problem
+inoremap <Tab> <Esc>|
+nnoremap <S-Tab> i<Tab><Esc><Right>
+vnoremap <S-Tab> >gv|
+inoremap <S-Tab> <Tab>|
 
 " Enter, open line
 nnoremap <CR> i<CR><Esc>|

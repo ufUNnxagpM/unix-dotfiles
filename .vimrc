@@ -1,8 +1,29 @@
-" Load pathogen
-execute pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 autocmd StdinReadPre * let s:std_in=1
 " Show NERDTree  when nothing is opened
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Save fold positions
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
@@ -22,6 +43,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:ycm_server_python_interpreter = "/usr/bin/python2"
 
 map <C-n> :NERDTreeToggle<CR>
 syntax on
