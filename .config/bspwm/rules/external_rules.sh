@@ -28,6 +28,18 @@ if [ "$instance" = "LibreOffice" ] ; then
         exit 0
 fi
 
+if [ "$instance" = "Soffice" ] ; then
+        echo "state = tiled"
+
+        exit 0
+fi
+
+if [ "$instance" = "zathura" ] ; then
+        echo "state = tiled"
+
+        exit 0
+fi
+
 if [ "$instance" = "discord" ] ; then
         echo "desktop = ^10"
         #echo "state = floating"
