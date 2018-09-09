@@ -46,6 +46,8 @@ let g:syntastic_check_on_wq = 0
 
 let g:ycm_server_python_interpreter = "/usr/bin/python2"
 
+set smartcase
+
 map <C-n> :NERDTreeToggle<CR>
 syntax on
 filetype plugin indent on

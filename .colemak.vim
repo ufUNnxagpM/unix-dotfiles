@@ -147,6 +147,8 @@ onoremap r i
 " Folds, etc.
 " nnoremap ; z|xnoremap ; z|
 nnoremap ff zf|xnoremap ff zf|
+nnoremap fo zo|xnoremap fo zo|
+nnoremap fc zc|xnoremap fc zc|
 " nnoremap ; z|xnoremap ; z|
 
 " Map ; to :
