@@ -152,6 +152,10 @@ alt + {b, shift + b}
 alt + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
+# send to last preselect
+alt + y
+	bspc node -n last.\!automatic -t tiled
+
 # cancel the preselection for the focused node
 #alt + v
 	#bspc node -p cancel

@@ -33,7 +33,7 @@ set laststatus=2
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline_theme="base16_embers"
-let g:notes_directories = ['~/cloud/usc/notes']
+let g:notes_directories = ['~/cloud/Documents/USC/notes']
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
