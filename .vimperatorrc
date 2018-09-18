@@ -1,4 +1,4 @@
-" Matts's vimperatorrc for colemak
+" Treadwell's vimperatorrc for colemak
 colorscheme ashes
 set defsearch=duckduckgo
 set slv=hidden

@@ -1,31 +1,34 @@
 #! /bin/sh
 
+### Auxiliary Programs ###
 if ! pgrep -x "sxhkd" > /dev/null; then sxhkd -m -1; fi &
 if ! pgrep -x "polybar" > /dev/null; then $HOME/.config/polybar/launch.sh; fi &
 xsetroot -cursor_name left_ptr &
 
-#Set alt key for resizing windows via mouse
-bspc config pointer_modifier mod1 &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 #bspc config focus_follows_pointer true
 
+### Pointer Settings ###
 bspc config focus_follows_pointer "${setting_focus_follows_pointer:-true}"
 bspc config ignore_ewmh_focus "${setting_ignore_ewmh_focus:-true}"
+bspc config pointer_modifier mod1 
 
+### Options ###
 bspc config border_width         3
 bspc config window_gap          40
 
+bspc config automatic_scheme longest_side
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-#bspc rule -a Gimp desktop='^8' state=floating follow=on
-#bspc rule -a Chromium desktop='^2
-#bspc rule -a mpv state=floating focus=off command="xdotool windowmove {} 1280 -1"
-#bspc rule -a Zathura state=tiled
-#bspc rule -a Kupfer.py focus=on
-#bspc rule -a Screenkey manage=off
-#bspc config external_rules_command ~/.config/bspwm/rules/euclid_mode
+### Color ###
+bspc config normal_border_color #30302f
+bspc config active_border_color #474645
+bspc config focused_border_color #817f7f
+bspc config presel_feedback_color #f4d775
+
+### External Rules ###
 bspc config external_rules_command ~/.config/bspwm/rules/external_rules.sh
