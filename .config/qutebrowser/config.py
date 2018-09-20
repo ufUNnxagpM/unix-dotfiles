@@ -3,14 +3,15 @@ c.url.start_pages = "https://www.matte.fyi"
 c.editor.command = ["vim", "-f", "{}"]
 c.downloads.position = "bottom"
 c.downloads.location.directory = "~/Downloads/"
-#c.content.user_stylesheets = ["/home/machu/solarized-everything-css/css/solarized-all-sites-dark.css"]
-#c.scrolling.smooth = True
+#c.content.user_stylesheets = ["/home/machu/.config/qutebrowser/solarized-all-sites-dark.css"]
+c.scrolling.smooth = False
 c.completion.height = "20%"
 c.tabs.background = True
 c.tabs.last_close = "close"
 c.hints.chars = "arstdhneio"
 c.fonts.tabs = "12pt tamzenforpowerline"
-c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}", "y": "https://www.youtube.com/results?search_query={}&search=Search", "g": "https://www.google.com/#q{}", "r": "https://www.reddit.com/search?q={}"}
+#c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}", "y": "https://www.youtube.com/results?search_query={}&search=Search", "g": "https://www.google.com/search?q={}", "r": "https://www.reddit.com/search?q={}"}
+c.url.searchengines = {"DEFAULT": "https://www.google.com/search?q={}", "y": "https://www.youtube.com/results?search_query={}&search=Search", "g": "https://www.google.com/search?q={}", "r": "https://www.reddit.com/search?q={}"}
 c.content.host_blocking.lists =  ["https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"]
 
 #Color
@@ -59,8 +60,15 @@ config.bind('I', 'forward')
 config.bind('j', 'scroll-page 0 -1')
 config.bind('h', 'scroll-page 0 1')
 
+#Search
+config.bind('k', 'search-next')
+config.bind('K', 'search-prev')
+
 #yank
 config.bind(';', 'yank')
+
+#password
+config.bind('gp', 'spawn --userscript qute-pass')
 
 #spawn youtube link into mpv
 config.bind('Y', 'hint links spawn mpv {hint-url}')
