@@ -29,7 +29,7 @@ font-3 = MaterialDesignIcons:size=14;1
 font-1 = FontAwesome:size=12;1
 font-2 = Termsynu:size=8;-1
 
-modules-left = powermenu mpd
+modules-left = mpd
 modules-center = bspwm-tmp
 modules-right = volume date
 
