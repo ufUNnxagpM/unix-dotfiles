@@ -4,19 +4,19 @@
 
 # terminal emulator
 alt + Return
-	termite
+	termite -c $HOME/.config/termite/$THEME
 
 # program launcher
 alt + space
-	tdrop -a -w 1920 -y 1260 -x 960 -h 900  termite
+	tdrop -a -w 1920 -y 1260 -x 960 -h 900  termite -c $HOME/.config/termite/$THEME
 
 alt + r
-	rofi -show run -terminal termite -lines 5 -eh 2 -width 10 -padding 10 -font "xos4 Terminus Regular 14" -theme ~/.config/rofi/themes/android_notification.rasi
+	rofi -show run -terminal termite -lines 5 -eh 2 -width 10 -padding 10 -font "xos4 Terminus Regular 14" -theme $HOME/.config/rofi/themes/android_notification.rasi
 	#rofi -show run -terminal termite -lines 5 -eh 2 -width 20 -padding 10 -opacity 98 -font "TSTAR PRO MEDIUM 22"
 
 #file manager
 alt + f
-	termite -e 'ranger'
+	termite -c $HOME/.config/termite/$THEME -e 'ranger'
 
 #volume
 XF86AudioLowerVolume
