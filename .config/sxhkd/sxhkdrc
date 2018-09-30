@@ -98,7 +98,7 @@ alt + shift + {n,e,u,i}
 	#bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node in the current desktop
-alt + {_,shift + }c
+alt + {_,shift + }z
 	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
@@ -157,8 +157,8 @@ alt + y
 	bspc node -n last.\!automatic -t tiled
 
 # cancel the preselection for the focused node
-#alt + v
-	#bspc node -p cancel
+alt + c
+	bspc node -p cancel
 
 # cancel the preselection for the focused desktop
 #alt + v + shift + space

@@ -18,6 +18,7 @@ spacing = 4
 ;spacing = 2
 lineheight = 16
 padding-right = 5
+padding-left = 5
 module-margin-left = 3
 module-margin-right = 3
 ;module-margin-left = 1
@@ -303,8 +304,8 @@ bar-progress-empty = ─
 bar-progress-empty-font = 3
 bar-progress-empty-foreground = #44
 
-[module/volume]
-type = internal/volume
+[module/pulseaudio]
+type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
 label-volume = VOL
