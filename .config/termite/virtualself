@@ -1,47 +1,43 @@
 [options]
-font=tamzenforpowerline 12
+font             = tamzenforpowerline 12
+
 [colors]
-# Base16 Ashes
-# Scheme: Jannik Siebert (https://github.com/janniks)
 
-background = rgba(20, 20, 20, .9)
-# background = rgba(46, 52, 60, 1)
-foreground      = #DDDDDD
-foreground_bold = #DDDDDD
-#cursor          = #DDDDDD
+# special
+foreground      = #d5b4b7
+foreground_bold = #d5b4b7
+cursor          = #d5b4b7
+#background      = #030202
+background      = rgba(3,2,2, 0.9)
 
-# 16 color space
+# black
+color0  = #030202
+color8  = #957d80
 
-#dark blue
-color0  = #1C2023
-color8  = #747C84
-#red
-color1  = #f6887a
-color9 = #CE7266
-#aquamarine
-color2  = #84cdc9
-color10  = #6CA7A4
-#light brown
-color3  = #b0aca9
-color11  = #8B8886
-#green
-color4  = #52aa97
-color12  = #3Daa7C
-#brown
-color5 = #8A9FA3
-color13 = #8A9FA3
-#ice blue
-color6 = #797474
-color14 = #797474
-#grey ice blue
-color7  = #FFFFFF
-color15 = #DEDEDE
- 
-# 256 color space
-color16 = #C7C795
-color17 = #C7C795
-color18 = #393F45
-color19 = #565E65
-color20 = #ADB3BA
-color21 = #DFE2E5
-color22 = #252C34
+# red
+color1  = #8a4c5b
+color9  = #8a4c5b
+
+# green
+color2  = #9a5565
+color10 = #9a5565
+
+# yellow
+color3  = #a75c6e
+color11 = #a75c6e
+
+# blue
+color4  = #b66578
+color12 = #b66578
+
+# magenta
+color5  = #c16a7f
+color13 = #c16a7f
+
+# cyan
+color6  = #ad887c
+color14 = #ad887c
+
+# white
+color7  = #d5b4b7
+color15 = #d5b4b7
