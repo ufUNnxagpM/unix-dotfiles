@@ -147,6 +147,8 @@ alt + {v, shift + v}
 	bspc node -p {south,west}
 alt + {b, shift + b}
 	bspc node -p {east,north}
+#alt + Backspace + {e, n, u, i}
+	#bspc node -p {south,east,north,west}
 
 # preselect the ratio
 alt + ctrl + {1-9}
