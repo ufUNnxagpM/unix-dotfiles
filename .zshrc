@@ -14,6 +14,7 @@ alias pingg='ping -c 3 8.8.8.8'
 alias vu='pactl set-sink-volume alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.analog-stereo +5%'
 alias vd='pactl set-sink-volume alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.analog-stereo -5%'
 alias sizesort='du -m --max-depth 1 | sort -n'
+alias weather='curl wttr.in'
 DEFAULT_USER=$(whoami)
 
 
