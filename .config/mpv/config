@@ -62,14 +62,17 @@ volume=100                              # default volume, 100 = unchanged
 # Video #
 #########
 
+#glsl-shader="~~/FSRCNNX_x2_8-0-4-1.glsl"
+
 #scale=ewa_hanning
 #scale-radius=3.2383154841662362 hanning with this radius is broken on OSX due to OpenGL driver bug
-profile=opengl-hq
-#vo=opengl-hq
+profile=gpu-hq
+vo=gpu
 tscale=oversample
 interpolation
+video-sync=display-resample
 scale=ewa_lanczossharp
-cscale=ewa_lanczossoft
+cscale=ewa_lanczossharp
 dscale=mitchell
 scale-antiring=0
 cscale-antiring=0
