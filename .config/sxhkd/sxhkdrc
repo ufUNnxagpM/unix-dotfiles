@@ -87,10 +87,8 @@ alt + {shift + space,t}
 # focus the node in the given direction
 alt + {n,e,u,i}
 	~/.config/bspwm/focus.sh {west,south,north,east}
-	#bspc node -f {west,south,north,east}
 alt + shift + {n,e,u,i}
 	~/.config/bspwm/move.sh {west,south,north,east}
-	#euclid_mover {west,south,north,east}
 	
 
 # focus the node for the given path jump
@@ -119,17 +117,13 @@ alt + {o,i}
 alt + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
-#balance
-#alt + b
-#        bspc -B
-
 #equalize
-#alt + shift + b
-        #bspc -E
+alt + shift + l
+        bspc node @focused:/ -E
 
-#euclid balance
+#balance
 alt + l
-	euclid_balancer
+	bspc node @focused:/ -B
 
 #flip
 alt + a
@@ -147,7 +141,7 @@ alt + {v, shift + v}
 	bspc node -p {south,west}
 alt + {b, shift + b}
 	bspc node -p {east,north}
-#alt + Backspace + {e, n, u, i}
+#alt + BackSpace + {e, n, u, i}
 	#bspc node -p {south,east,north,west}
 
 # preselect the ratio
