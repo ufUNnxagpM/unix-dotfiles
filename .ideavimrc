@@ -14,8 +14,10 @@ nnoremap e j
 nnoremap i l
 
 " Page up/down
-nnoremap j <PageUp>
-nnoremap h <PageDown>
+nnoremap j <C-U>
+nnoremap h <C-D>
+nnoremap j <S-Home>
+nnoremap h <S-End>
 
 " Previous / next match
 nnoremap b ,
@@ -84,7 +86,7 @@ vnoremap <Space>i =
 noremap <Space>i v=
 
 " Join lines
-nnoremap <Space>J J
+nnoremap jj J
 
 
 " ============================================================================
@@ -101,11 +103,25 @@ nnoremap <Space>vs :source ~/.ideavimrc<CR>
 " ============================================================================
 " IDE actions
 " ============================================================================
+nnoremap <Space> <Nop>
 
 nnoremap / :action Find<CR>
-nnoremap <Space>o :action GotoClass<CR>
-nnoremap <Space>O :action GotoFile<CR>
-nnoremap <Space>d :action CloseContent<CR>
-nnoremap <Space>j :action RecentFiles<CR>
+nnoremap <Space>c :action GotoClass<CR>
+nnoremap <Space>o :action GotoFile<CR>
+nnoremap <Space>s :action CloseContent<CR>
+nnoremap <Space>v :action VimWindowSplitVertical<CR>
+nnoremap <Space>b :action VimWindowSplitVertical<CR>
+nnoremap <Space>r :action RecentFiles<CR>
 nnoremap <Space>k :action FileStructurePopup<CR>
 nnoremap <Space>h :action QuickJavaDoc<CR>
+nnoremap <Space>Tab :action VimWindowPrev<CR>
+
+nnoremap <Space>e :action VimWindowDown<CR>
+nnoremap <Space>i :action VimWindowRight<CR>
+nnoremap <Space>n :action VimWindowLeft<CR>
+nnoremap <Space>u :action VimWindowUp<CR>
+
+nnoremap <Space>y :action NextTab<CR>
+nnoremap <Space>l :action PreviousTab<CR>
+nnoremap <S-Space>t :action ReopenClosedTab<CR>
+

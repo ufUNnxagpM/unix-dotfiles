@@ -32,7 +32,7 @@ font-2 = Termsynu:size=8;-1
 
 modules-left = mpd
 modules-center = bspwm-tmp
-modules-right = volume date
+modules-right = date
 
 [bar/bottom]
 monitor = DisplayPort-0
