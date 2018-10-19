@@ -9,6 +9,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'lervag/vimtex'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'kien/ctrlp.vim'
@@ -18,7 +19,7 @@ Plugin 'xolox/vim-notes'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'lervag/vimtex'
+Plugin 'vim-syntastic/syntastic'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -45,7 +46,11 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:ycm_server_python_interpreter = "/usr/bin/python2"
+let g:ycm_server_python_interpreter = "/usr/bin/python3"
+
+let g:vimtex_enabled = 1
+let g:vimtex_compiler_method = "latexmk"
+let g:tex_flavor = 'latex'
 
 set smartcase
 
