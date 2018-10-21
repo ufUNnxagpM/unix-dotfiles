@@ -22,6 +22,12 @@ if [ "$instance" = "gimp" ] ; then
         exit 0
 fi
 
+if [ "$instance" = "feh" ] ; then
+        echo "state = floating"
+
+        exit 0
+fi
+
 if [ "$instance" = "LibreOffice" ] ; then
         echo "state = tiled"
 

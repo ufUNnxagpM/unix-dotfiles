@@ -4,7 +4,7 @@ PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/$(whoami)/.oh-my-zsh
-  export EDITOR='vim'
+  export EDITOR='nvim'
   export PAGER='vimpager'
 
 eval $(thefuck --alias)
