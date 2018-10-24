@@ -1,0 +1,40 @@
+[options]
+font=tamzenforpowerline 12
+
+[colors]
+
+foreground  = #bfaf9f
+background  = #222227
+cursor = #bfaf9f
+
+#black
+color0  =  #222227
+color8  =  #222227
+
+#red
+color1  =  #C37A31
+color9  =  #ff9e2f
+
+#green
+color2  =  #6F6149
+color10 =  #9c8152
+
+#yellow
+color3  =  #975F2C
+color11 =  #d17a2c
+
+#blue
+color4  =  #3F4038
+color12 =  #575a41
+
+#magenta
+color5  =  #6E5132
+color13 =  #996936
+
+#cyan
+color6  =  #514834
+color14 =  #71603a
+
+#white
+color7  =  #bfaf9f
+color15 =  #ffebd5
