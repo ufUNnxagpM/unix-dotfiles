@@ -19,6 +19,10 @@ These are the dotfiles that I run on my Arch Linux machines. My workflow is larg
 
 ![][vs]
 
+### Manta
+
+![][manta]
+
 ### Mac OSLinux
 
 ![][os]
@@ -36,3 +40,4 @@ These are the dotfiles that I run on my Arch Linux machines. My workflow is larg
 [vs]: https://i.imgur.com/TxAaKcZ.jpg
 [sketch]:http://i.imgur.com/F1SOEu5.png
 [os]: https://i.imgur.com/uGqCTVm.png
+[manta]: https://i.imgur.com/AP7TwFs.png
