@@ -26,10 +26,9 @@ module-margin-right = 3
 ;module-margin-right = 1
 
 ;font-0 = envypn:pixelsize=13;0
-font-0 = Iosevka:size=11;0
-font-3 = MaterialDesignIcons:size=14;1
-font-1 = FontAwesome:size=12;1
-font-2 = Termsynu:size=8;-1
+font-0 = Iosevka:size=11;2
+font-1 = TerminessTTF Nerd Font:pixelsize=12:antialias=true;4
+font-2 = "Noto Sans CJK JP:size=11:antialias=true;2"
 
 modules-left = mpd
 modules-center = bspwm-tmp
@@ -57,160 +56,19 @@ padding-left = 4
 module-margin-left = 0
 module-margin-right = 6
 
-font-0 = Iosevka:size=11;0
-font-1 = Unifont:size=10;-3
-font-2 = FontAwesome:size=12;-2
-font-3 = NotoSans-Regular:size=12;-1
-font-4 = MaterialDesignIcons:size=14;-1
-font-5 = Termsynu:size=10;-1
+font-0 = Iosevka:size=11;2
+font-1 = TerminessTTF Nerd Font Mono:pixelsize=16:antialias=true;2
+font-2 = "Noto Sans CJK JP:size=11:antialias=true;2"
 
 modules-center = cpu memory
-modules-left = bandwidth
+modules-left = wlan
 
-[bar/external_bottom]
-;inherit-from = bar/bottom
-
-monitor = HDMI-1
-bottom = true
-width = ${bar/bottom.width}
-height = ${bar/bottom.height}
-
-background = ${bar/bottom.background}
-foreground = ${bar/bottom.foreground}
-linecolor = ${bar/bottom.linecolor}
-
-spacing = ${bar/bottom.spacing}
-lineheight = ${bar/bottom.lineheight}
-padding-right = ${bar/bottom.padding_right}
-module-margin-left = ${bar/bottom.module_margin_left}
-module-margin-right = ${bar/bottom.module_margin_right}
-
-font-0 = ${bar/bottom.font-0}
-font-1 = ${bar/bottom.font-1}
-font-2 = ${bar/bottom.font-2}
-font-3 = ${bar/bottom.font-3}
-font-4 = ${bar/bottom.font-4}
-
-modules-left = bspwm
-modules-right = clock
-
-[module/bandwidth]
-type = custom/script
-exec = /usr/bin/bandwidth
-interval = 5
-
-[module/backlight]
-type = internal/backlight
-card = intel_backlight
-format = <ramp> <bar>
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-
-bar-width = 10
-bar-format = %{A4:backlight_percentage%__p5:}%{A5:backlight_percentage%__m5:}%{+u}%{+o}%fill%%{-u}%{-o}%indicator%%{+u}%{+o}%empty%%{-u}%{-o}%{A}%{A}
-bar-indicator = |
-bar-indicator-foreground = #ff
-bar-indicator-font = 3
-bar-fill = █
-bar-fill-foreground = #bb
-bar-fill-font = 3
-bar-empty = █
-bar-empty-font = 3
-bar-empty-foreground = #44
-
-[module/battery]
-type = internal/battery
-full-at = 98
-
-format-charging = <animation-charging> <label-charging>
-format-discharging = <ramp-capacity> <label-discharging>
-format-full = <ramp-capacity> <label-full>
-
-ramp-capacity-0 = 
-ramp-capacity-0-foreground = #f53c3c
-ramp-capacity-1 = 
-ramp-capacity-1-foreground = #ffa900
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-
-bar-capacity-width = 10
-bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
-bar-capacity-fill = █
-bar-capacity-fill-foreground = #ddffffff
-bar-capacity-fill-font = 3
-bar-capacity-empty = █
-bar-capacity-empty-font = 3
-bar-capacity-empty-foreground = #44ffffff
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-framerate = 750
-
-[module/bspwm]
-type = internal/bspwm
-
-ws-icon-0 = term;
-ws-icon-1 = web;
-ws-icon-2 = code;
-ws-icon-3 = music;
-ws-icon-4 = irssi;
-ws-icon-default = 
-
-format = <label-state> <label-mode>
-
-label-dimmed-underline = ${BAR.background}
-
-label-active = %icon%
-label-active-foreground = #fff
-label-active-background = #773f3f3f
-;label-active-underline = #fba922
-label-active-underline = #c9665e
-label-active-font = 4
-label-active-padding = 4
-
-label-occupied = %icon%
-label-occupied-foreground = #dd
-label-occupied-underline = #666
-label-occupied-font = 4
-label-occupied-padding = 4
-
-label-urgent = %icon%
-label-urgent-foreground = #000000
-label-urgent-background = #bd2c40
-label-urgent-underline = #9b0a20
-label-urgent-font = 4
-label-urgent-padding = 4
-
-label-empty = %icon%
-label-empty-foreground = #55
-label-empty-font = 4
-label-empty-padding = 4
-
-label-monocle = 
-label-monocle-underline = ${module/bspwm.label-active-underline}
-label-monocle-background = #33ffffff
-label-monocle-padding = 2
-
-label-locked = 
-label-locked-foreground = #bd2c40
-label-locked-underline = ${module/bspwm.label-monocle-underline}
-label-locked-padding = ${module/bspwm.label-monocle-padding}
-
-label-sticky = 
-label-sticky-foreground = #fba922
-label-sticky-underline = ${module/bspwm.label-monocle-underline}
-label-sticky-padding = ${module/bspwm.label-monocle-padding}
-
-label-private = 
-label-private-foreground = #bd2c40
-label-private-underline = ${module/bspwm.label-monocle-underline}
-label-private-padding = ${module/bspwm.label-monocle-padding}
+[module/wlan]
+type = internal/network
+interface = enp4s0
+interval = 3.0
+udspeed-minwidth = 3
+label-connected = DOWN %downspeed% UP %upspeed%
 
 [module/bspwm-tmp]
 type = internal/bspwm
@@ -264,36 +122,36 @@ type = internal/memory
 format = <label> <bar-used>
 label = RAM
 
-bar-used-width = 30
+bar-used-width = 20
 bar-used-foreground-0 = #aaff77
 bar-used-foreground-1 = #aaff77
 bar-used-foreground-2 = #fba922
 bar-used-foreground-3 = #ff5555
 bar-used-indicator = |
-bar-used-indicator-font = 6
+bar-used-indicator-font = 3
 bar-used-indicator-foreground = #ff
 bar-used-fill = ─
-bar-used-fill-font = 6
+bar-used-fill-font = 3
 bar-used-empty = ─
-bar-used-empty-font = 6
+bar-used-empty-font = 3
 bar-used-empty-foreground = #ffffff
 
 [module/mpd]
 type = internal/mpd
 format-online = <icon-prev> <toggle> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
 
-icon-play = 
-icon-pause = 
+icon-play = 契
+icon-pause = 
 ;icon-stop = 
-icon-prev = 
-icon-next = 
-icon-random = 
-icon-repeat = 
+icon-prev = 玲
+icon-next = 怜
+icon-random = 列
+icon-repeat = 凌
 
 toggle-on-foreground =
 toggle-off-foreground = #55
 
-bar-progress-width = 45
+bar-progress-width = 20
 bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
 bar-progress-indicator = |
 bar-progress-indicator-foreground = #ff

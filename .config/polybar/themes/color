@@ -44,12 +44,10 @@ white2 = ${xrdb:color15:#b9fafc}
                                                                         # TOPBAR
                                                                         ########
 [bar/topbar]
-monitor = eDP1
+monitor = DisplayPort-0
 width = 100%
-height = 18
+height = 24
 fixed-center = true
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
 
 background = ${colors.bg}
 
@@ -65,8 +63,8 @@ line-size = 2
 #font-0 = nu:pixelsize=9:antialias=false;1
 #font-0 = Scientifica:pixelsize=7:antialias=false;2
 #font-0 = FontAwesome:pixelsize=10:antialias=true;3
-font-0 = cherry:pixelsize=7:antialias=false;2
-font-1 = TerminessTTF Nerd Font Mono:pixelsize=16:antialias=true;4
+font-0 = Iosevka:pixelsize=11:antialias=true;2
+font-1 = TerminessTTF Nerd Font Mono:pixelsize=20:antialias=true;4
 font-2 = unifont:fontformat=truetype:size=8:antialias=true;0 ;BARS
 font-3 = "Noto Sans CJK JP:size=7:antialias=false;2"
 font-4 = Wuncon Siji:pixelsize=8:antialias=false;2
@@ -75,14 +73,14 @@ font-4 = Wuncon Siji:pixelsize=8:antialias=false;2
 #TerminessTTF:            
 #
 
-modules-left = i32 mpdbutton mpdtrack2
+modules-left = bspwm-tmp mpdbutton mpdtrack2
 modules-center = 
-modules-right = wlan2 vpn2 bt2 audio2 xbacklight2 battery2 date2
+modules-right = wlan2 date2
 ################################################################################
                                                                         # MPDBAR
                                                                         ########
 [bar/mpdbar]
-monitor = eDP1
+monitor = DisplayPort-0
 width = 100%
 height = 1
 background = #071017
@@ -214,7 +212,7 @@ click-middle = exec blueman-manager &
                                                                           ######
 [module/wlan2]
 type = internal/network
-interface = wlp4s0
+interface = enp4s0
 interval = 1.0
 udspeed-minwidth = 3
 
@@ -294,8 +292,8 @@ format-discharging-background = ${colors.green1}
 ################################################################################
                                                                             # i3
                                                                             ####
-[module/i32]
-type = internal/i3
+[module/bspwm]
+type = internal/bspwm
 pin-workspaces = true
 index-sort = true
 enable-click = true
