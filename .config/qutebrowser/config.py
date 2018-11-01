@@ -13,6 +13,7 @@ c.fonts.tabs = "12pt tamzenforpowerline"
 #c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}", "y": "https://www.youtube.com/results?search_query={}&search=Search", "g": "https://www.google.com/search?q={}", "r": "https://www.reddit.com/search?q={}"}
 c.url.searchengines = {"DEFAULT": "https://www.google.com/search?q={}", "y": "https://www.youtube.com/results?search_query={}&search=Search", "g": "https://www.google.com/search?q={}", "r": "https://www.reddit.com/search?q={}"}
 c.content.host_blocking.lists =  ["https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"]
+c.qt.force_software_rendering = "qt-quick"
 
 #Color
 c.colors.tabs.odd.fg = "white"
@@ -57,8 +58,8 @@ config.bind('N', 'back')
 config.bind('I', 'forward')
 
 #Page Motion
-config.bind('j', 'scroll-page 0 -1')
-config.bind('h', 'scroll-page 0 1')
+config.bind('j', 'scroll-page 0 -0.5')
+config.bind('h', 'scroll-page 0 0.5')
 
 #Search
 config.bind('k', 'search-next')
