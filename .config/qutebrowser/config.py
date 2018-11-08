@@ -45,8 +45,8 @@ config.bind('l', 'tab-prev')
 #Direction
 config.bind('u', 'scroll up')
 config.bind('e', 'scroll down')
-config.bind('i', 'scroll left')
-config.bind('n', 'scroll right')
+config.bind('n', 'scroll left')
+config.bind('i', 'scroll right')
 
 config.bind('w', 'scroll up')
 config.bind('r', 'scroll down')
