@@ -5,6 +5,36 @@
 [settings]
 pseudo-transparency = true
 
+[bar/ext]
+monitor = HDMI-0
+width = 100%
+height = 30
+offset-y = 0
+clickareas = 35
+wm-restack = bspwm
+fixed-center = true
+
+background = #00000000
+foreground = #eeffffff
+linecolor = ${bar/bottom.background}
+
+spacing = 4
+;spacing = 2
+lineheight = 16
+padding-right = 5
+padding-left = 5
+module-margin-left = 3
+module-margin-right = 3
+;module-margin-left = 1
+;module-margin-right = 1
+
+;font-0 = envypn:pixelsize=13;0
+font-0 = Iosevka:size=11;2
+font-1 = TerminessTTF Nerd Font:pixelsize=12:antialias=true;4
+font-2 = "Noto Sans CJK JP:size=11:antialias=true;2"
+
+modules-center = bspwm-tmp
+
 [bar/top]
 monitor = DP-0
 width = 100%
@@ -69,7 +99,7 @@ modules-left = wlan
 type = internal/network
 interface = enp4s0
 interval = 3.0
-udspeed-minwidth = 3
+upspeed:min = 3
 label-connected = DOWN %downspeed% UP %upspeed%
 
 [module/bspwm-tmp]
