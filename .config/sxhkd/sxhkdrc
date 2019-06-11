@@ -8,7 +8,7 @@ alt + Return
 
 # program launcher
 alt + space
-	tdrop -a -w 1920 -y 1260 -x 960 -h 900  termite -c $HOME/.config/termite/$THEME
+	tdrop -a -w 1920 -y 1260 -x 960 -h 900 -f '-c $HOME/.config/termite/$THEME' termite
 
 alt + r
 	rofi -show run -terminal termite -lines 5 -eh 2 -width 10 -padding 10 -font "xos4 Terminus Regular 14" -theme $HOME/.config/rofi/themes/android_notification.rasi
@@ -101,6 +101,9 @@ alt + {_,shift + }z
 
 # focus the next/previous desktop in the current monitor
 alt + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+alt + {semicolon,minus}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop

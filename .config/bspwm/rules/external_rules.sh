@@ -46,6 +46,13 @@ if [ "$instance" = "zathura" ] ; then
         exit 0
 fi
 
+if [ "$instance" = "Steam" ] ; then
+        echo "desktop = ^10"
+        #echo "state = floating"
+
+        exit 0
+fi
+
 if [ "$instance" = "discord" ] ; then
         echo "desktop = ^10"
         #echo "state = floating"

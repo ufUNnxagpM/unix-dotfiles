@@ -47,7 +47,6 @@ sub-spacing=0.5
 
 slang=enm,en,eng,de,deu,ger             # automatically select these subtitles (decreasing priority)
 alang=ja,jp,jpn,en,eng,de,deu,ger       # automatically select these audio tracks (decreasing priority)
-#alang=ja,jp,jpn,en,eng,de,deu,ger       # automatically select these audio tracks (decreasing priority)
 
 #########
 # Audio #
@@ -62,7 +61,7 @@ volume=100                              # default volume, 100 = unchanged
 # Video #
 #########
 
-#glsl-shader="~~/FSRCNNX_x2_8-0-4-1.glsl"
+glsl-shader="~~/FSRCNNX_x2_16-0-4-1.glsl"
 
 #scale=ewa_hanning
 #scale-radius=3.2383154841662362 hanning with this radius is broken on OSX due to OpenGL driver bug
