@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/bash
 
 # Terminate already running bar instances
 killall -q polybar
@@ -13,9 +13,10 @@ if [[ $# -ne 1 ]]; then
 	polybar ext &
 	echo "WARNING: No theme applied to polybar"
 else
-polybar -c $HOME/.config/polybar/themes/$THEME top &
-polybar -c $HOME/.config/polybar/themes/$THEME bottom &
-polybar -c $HOME/.config/polybar/themes/$THEME ext &
+	polybar -c $HOME/.config/polybar/themes/$THEME top &
+	polybar -c $HOME/.config/polybar/themes/$THEME bottom &
+	polybar -c $HOME/.config/polybar/themes/$THEME right &
+	polybar -c $HOME/.config/polybar/themes/$THEME left &
 fi 
 
 echo "Bars launched..."
