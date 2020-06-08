@@ -1,15 +1,23 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/$(whoami)/.oh-my-zsh
   export EDITOR='nvim'
-  export PAGER='vimpager'
+  #export PAGER='vimpager'
 
-eval $(thefuck --alias)
+# Jetbrains wm fix
+export _JAVA_AWT_WM_NONREPARENTING=1
 
+# Dotnet core shit
+#export CLR_OPENSSL_VERSION_OVERRIDE=47
+#export DOTNET_ROOT=$HOME/dotnet
+#export PATH=$PATH:$HOME/dotnet
+
+# Aliases
 alias less=$PAGER
+alias startx='startx -- -ardelay 200 -arinterval 30'
+alias off='xset dpms force off'
 alias pingg='ping -c 3 8.8.8.8'
 alias vu='pactl set-sink-volume alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.analog-stereo +5%'
 alias vd='pactl set-sink-volume alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.analog-stereo -5%'
@@ -21,6 +29,7 @@ DEFAULT_USER=$(whoami)
 function mm() {
     mpv --no-video --ytdl-format=bestaudio ytdl://ytsearch:"$@"
 }
+
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -104,16 +113,15 @@ source $ZSH/oh-my-zsh.sh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/mnt/storage/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/machu/.anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/mnt/storage/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/mnt/storage/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/machu/.anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/machu/.anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/mnt/storage/anaconda3/bin:$PATH"
+        export PATH="/home/machu/.anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
