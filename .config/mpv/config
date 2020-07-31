@@ -69,7 +69,7 @@ glsl-shader="~~/ravu-lite-r4.hook"
 #scale-radius=3.2383154841662362 hanning with this radius is broken on OSX due to OpenGL driver bug
 profile=gpu-hq
 vo=gpu
-gpu-api=vulkan # Changing this to vulkan causes audio crackles
+#gpu-api=vulkan # Changing this to vulkan causes audio crackles
 tscale=oversample
 interpolation
 video-sync=display-resample

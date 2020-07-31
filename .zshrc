@@ -17,7 +17,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # Aliases
 alias less=$PAGER
 alias startx='startx -- -ardelay 200 -arinterval 30'
-alias off='xset dpms force off'
+alias off='sleep 1; xset dpms force off'
 alias pingg='ping -c 3 8.8.8.8'
 alias vu='pactl set-sink-volume alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.analog-stereo +5%'
 alias vd='pactl set-sink-volume alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.analog-stereo -5%'
@@ -25,6 +25,10 @@ alias sizesort='du -m --max-depth 1 | sort -n'
 alias weather='curl wttr.in'
 DEFAULT_USER=$(whoami)
 
+# Kubernetes
+source <(kubectl completion zsh)
+alias k=kubectl
+complete -F __start_kubectl k
 
 function mm() {
     mpv --no-video --ytdl-format=bestaudio ytdl://ytsearch:"$@"
