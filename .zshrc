@@ -14,6 +14,12 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 #export DOTNET_ROOT=$HOME/dotnet
 #export PATH=$PATH:$HOME/dotnet
 
+export PATH=$PATH:$HOME/.bin
+export PATH=$PATH:$HOME/.scripts
+export PATH=$PATH:$HOME/go/bin
+
+export GOPATH=$HOME/go
+
 # Aliases
 alias less=$PAGER
 alias startx='startx -- -ardelay 200 -arinterval 30'
@@ -26,6 +32,8 @@ alias weather='curl wttr.in'
 DEFAULT_USER=$(whoami)
 
 # Kubernetes
+autoload -Uz compinit
+compinit
 source <(kubectl completion zsh)
 alias k=kubectl
 complete -F __start_kubectl k

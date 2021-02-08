@@ -34,6 +34,7 @@ font-1 = TerminessTTF Nerd Font:pixelsize=12:antialias=true;4
 font-2 = "Noto Sans CJK JP:size=11:antialias=true;2"
 
 modules-center = bspwm-tmp
+modules-left = date
 
 [bar/left]
 monitor = DisplayPort-1
@@ -129,7 +130,7 @@ modules-left = wlan
 type = internal/network
 interface = enp38s0
 interval = 3.0
-upspeed:min = 3
+udspeed-minwidth = 3
 label-connected = DOWN %downspeed% UP %upspeed%
 
 [module/bspwm-tmp]
@@ -176,7 +177,7 @@ ramp-coreload-7-foreground = #ff5555
 
 [module/date]
 type = internal/date
-date = %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%I:%M%%{F-}
+date = %%{F#cccccc}%Y-%m-%d%%{F-}  %%{F#fff}%I:%M%%{F-}
 date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%I:%M%%{F#666}:%%{F#fba922}%S%%{F-}
 
 [module/memory]
@@ -213,7 +214,7 @@ icon-next = 怜
 icon-random = 列
 icon-repeat = 凌
 
-toggle-on-foreground =
+toggle-on-foreground = #ff
 toggle-off-foreground = #55
 
 bar-progress-width = 20
