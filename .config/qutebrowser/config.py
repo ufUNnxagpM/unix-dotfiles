@@ -1,5 +1,5 @@
 #qutebrowser settings
-c.url.start_pages = "http://start.matte.fyi/"
+c.url.start_pages = "https://ozencb.github.io/tilde-enhanced/"
 c.editor.command = ["vim", "-f", "{}"]
 c.downloads.position = "bottom"
 c.downloads.location.directory = "~/Downloads/"
@@ -9,7 +9,7 @@ c.completion.height = "20%"
 c.tabs.background = True
 c.tabs.last_close = "close"
 c.hints.chars = "arstdhneio"
-c.fonts.tabs = "12pt tamzenforpowerline"
+#c.fonts.tabs = "12pt tamzenforpowerline"
 c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}", "d": "https://duckduckgo.com/?q={}", "y": "https://www.youtube.com/results?search_query={}&search=Search", "g": "https://www.google.com/search?q={}", "r": "https://www.reddit.com/search?q={}", "r/": "https://www.reddit.com/r/{}"}
 #c.content.host_blocking.lists =  ["https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"]
 c.qt.force_software_rendering = "qt-quick"
