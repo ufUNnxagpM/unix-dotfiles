@@ -9,6 +9,9 @@ export ZSH=/home/$(whoami)/.oh-my-zsh
 # Jetbrains wm fix
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+# Fix ant errors
+export ANT_HOME=/usr/share/apache-ant
+
 # Dotnet core shit
 #export CLR_OPENSSL_VERSION_OVERRIDE=47
 #export DOTNET_ROOT=$HOME/dotnet
