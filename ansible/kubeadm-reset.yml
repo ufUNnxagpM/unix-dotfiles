@@ -1,0 +1,13 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Reset kubeadm
+      shell: "kubeadm reset --force"
+
+    - name: Delete flannel.1 interface
+      command: ip link delete flannel.1
+      ignore_errors: True
+
+    - name: Delete cni0 interface
+      command: ip link delete cni0
+      ignore_errors: True
