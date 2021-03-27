@@ -4,7 +4,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/$(whoami)/.oh-my-zsh
   export EDITOR='nvim'
-  #export PAGER='vimpager'
 
 # Jetbrains wm fix
 export _JAVA_AWT_WM_NONREPARENTING=1

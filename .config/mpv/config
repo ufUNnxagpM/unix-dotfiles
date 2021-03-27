@@ -1,9 +1,7 @@
 stop-screensaver = "yes"
-# cache-default=16384
 screenshot-directory = ~/
 
 hls-bitrate=max                         # use max quality for HLS streams
-#ytdl-raw-options=format="[protocol!=http_dash_segments][protocol!=rtmp]"
 ytdl-format=bestvideo+bestaudio/best
 
 #########
@@ -11,11 +9,7 @@ ytdl-format=bestvideo+bestaudio/best
 #########
 
 cache=yes
-#cache-default=5000000                   # size in KB
-#cache-backbuffer=25000                  # size in KB
-#cache-initial=0                         # start playback when your cache is filled up with x kB
-cache-secs=10                           # how many seconds of audio/video to prefetch if the cache is active
-
+demuxer-max-bytes=1024KiB
 
 #############
 # Subtitles #
@@ -32,14 +26,17 @@ sub-fix-timing=no                       # do not try to fix gaps (which might ma
 sub-ass-force-style=Kerning=yes         # allows you to override style parameters of ASS scripts
 
 # the following options only apply to subtitles without own styling (i.e. not ASS but e.g. SRT)
-sub-font="Source Sans Pro Semibold"
+sub-font="SF Pro Display"
+sub-bold=yes
 sub-font-size=36
 sub-color="#FFFFFFFF"
 sub-border-color="#FF262626"
-sub-border-size=3.2
+sub-border-size=2
 sub-shadow-offset=1
 sub-shadow-color="#33000000"
 sub-spacing=0.5
+sub-pos=94
+
 
 #############
 # Languages #
@@ -62,14 +59,17 @@ volume=100                              # default volume, 100 = unchanged
 #########
 
 #glsl-shader="~~/FSRCNNX_x2_16-0-4-1.glsl"
-glsl-shader="~~/ravu-lite-r4.hook"
-#glsl-shader="~~/Anime4k_Adaptive_v1.0RC2.glsl"
+glsl-shader="~~/FSRCNNX_x2_8-0-4-1.glsl"
+#glsl-shader="~~/ravu-lite-r4.hook"
+#glsl-shader="~~/Anime4K/Anime4K_Upscale_CNN_UL_x2_Deblur.glsl"
+#glsl-shader="~~/Anime4K/Anime4K_DarkLines_HQ.glsl"
+
 
 #scale=ewa_hanning
-#scale-radius=3.2383154841662362 hanning with this radius is broken on OSX due to OpenGL driver bug
+scale-radius=3.2383154841662362
 profile=gpu-hq
 vo=gpu
-#gpu-api=vulkan # Changing this to vulkan causes audio crackles
+gpu-api=vulkan
 tscale=oversample
 interpolation
 video-sync=display-resample

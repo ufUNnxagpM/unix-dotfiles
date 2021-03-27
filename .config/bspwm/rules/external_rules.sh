@@ -53,21 +53,28 @@ if [ "$instance" = "Zathura" ] ; then
 fi
 
 if [ "$instance" = "Steam" ] ; then
-        echo "desktop = ^18"
+        echo "desktop = ^21"
         #echo "state = floating"
 
         exit 0
 fi
 
 if [ "$instance" = "ncmpcpp" ] ; then
-        echo "desktop = ^19"
+        echo "desktop = ^22"
+        #echo "state = floating"
+
+        exit 0
+fi
+
+if [ "$instance" = "weechat" ] ; then
+        echo "desktop = ^23"
         #echo "state = floating"
 
         exit 0
 fi
 
 if [ "$instance" = "discord" ] ; then
-        echo "desktop = ^20"
+        echo "desktop = ^24"
         #echo "state = floating"
 
         exit 0
