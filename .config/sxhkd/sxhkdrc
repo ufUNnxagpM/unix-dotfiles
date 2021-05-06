@@ -5,28 +5,22 @@
 # terminal emulator
 alt + Return
 	alacritty
-	#termite -c $HOME/.config/termite/$THEME
 
 # program launcher
-alt + space
-	tdrop -a -w 1920 -y 1260 -x 960 -h 900 -f alacritty
-
 alt + r
-	rofi -show run -run-command '/bin/zsh -c -i \{cmd\}' -terminal urxvt -lines 5 -eh 2 -width 10 -padding 10 -font "PragmataPro 14" -theme $HOME/.config/rofi/themes/android_notification.rasi
-	#rofi -show run -terminal termite -lines 5 -eh 2 -width 20 -padding 10 -opacity 98 -font "TSTAR PRO MEDIUM 22"
+	.config/rofi/bin/launcher_colorful
 
 #file manager
 alt + f
 	alacritty -e ranger
-	#termite -c $HOME/.config/termite/$THEME -e 'ranger'
 
 #volume
-#XF86AudioLowerVolume
-#	pactl set-sink-volume alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.analog-stereo -5%
-#XF86AudioRaiseVolume
-#	pactl set-sink-volume alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.analog-stereo +5%
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
 XF86AudioMute
-	pactl set-sink-mute alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.analog-stereo toggle
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 #mpd control
 XF86AudioPrev
@@ -35,10 +29,6 @@ XF86AudioNext
 	mpc next
 XF86AudioPlay
 	mpc toggle
-
-#calculator
-XF86Calculator
-	chromium www.wolframalpha.com
 
 # make sxhkd reload its configuration files:
 alt + shift + p

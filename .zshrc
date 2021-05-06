@@ -11,11 +11,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # Fix ant errors
 export ANT_HOME=/usr/share/apache-ant
 
-# Dotnet core shit
-#export CLR_OPENSSL_VERSION_OVERRIDE=47
-#export DOTNET_ROOT=$HOME/dotnet
-#export PATH=$PATH:$HOME/dotnet
-
 export PATH=$PATH:$HOME/.bin
 export PATH=$PATH:$HOME/.scripts
 export PATH=$PATH:$HOME/go/bin
@@ -27,8 +22,6 @@ alias less=$PAGER
 alias startx='startx -- -ardelay 200 -arinterval 30'
 alias off='sleep 1; xset dpms force off'
 alias pingg='ping -c 3 8.8.8.8'
-alias vu='pactl set-sink-volume alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.analog-stereo +5%'
-alias vd='pactl set-sink-volume alsa_output.usb-Yamaha_Corporation_Steinberg_UR22-00.analog-stereo -5%'
 alias sizesort='du -m --max-depth 1 | sort -n'
 alias weather='curl wttr.in'
 DEFAULT_USER=$(whoami)
