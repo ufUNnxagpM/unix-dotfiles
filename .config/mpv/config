@@ -1,5 +1,6 @@
 stop-screensaver = "yes"
 screenshot-directory = ~/
+screenshot-template = "%wm:%wS:%wT_%F"
 
 hls-bitrate=max                         # use max quality for HLS streams
 ytdl-format=bestvideo+bestaudio/best
@@ -59,8 +60,8 @@ volume=100                              # default volume, 100 = unchanged
 #########
 
 #glsl-shader="~~/FSRCNNX_x2_16-0-4-1.glsl"
-glsl-shader="~~/FSRCNNX_x2_8-0-4-1.glsl"
-#glsl-shader="~~/ravu-lite-r4.hook"
+#glsl-shader="~~/FSRCNNX_x2_8-0-4-1.glsl"
+glsl-shader="~~/ravu-lite-r4.hook"
 #glsl-shader="~~/Anime4K/Anime4K_Upscale_CNN_UL_x2_Deblur.glsl"
 #glsl-shader="~~/Anime4K/Anime4K_DarkLines_HQ.glsl"
 
