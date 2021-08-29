@@ -11,8 +11,8 @@ xsetroot -cursor_name left_ptr &
 ### Workspaces ###
 
 bspc monitor DisplayPort-0 -d 1 2 3 4 5 6 7 8 9 10
-bspc monitor HDMI-A-0 -d 11 12 13 14 15 16 17
-bspc monitor DisplayPort-1 -d 18 19 20 21 22 23 24
+#bspc monitor HDMI-A-0 -d 11 12 13 14 15 16 17
+#bspc monitor DisplayPort-1 -d 18 19 20 21 22 23 24
 bspc monitor -f DisplayPort-0
 
 #bspc config focus_follows_pointer true

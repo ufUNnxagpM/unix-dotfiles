@@ -16,7 +16,8 @@
 instance=$3
 
 if [ "$instance" = "gimp" ] ; then
-        echo "desktop = ^13"
+        #echo "desktop = ^13"
+        echo "desktop = ^7"
         echo "state = floating"
 
         exit 0
@@ -28,24 +29,6 @@ if [ "$instance" = "feh" ] ; then
         exit 0
 fi
 
-if [ "$instance" = "java-lang-Thread" ] ; then
-        echo "state = floating"
-
-        exit 0
-fi
-
-if [ "$instance" = "LibreOffice" ] ; then
-        echo "state = tiled"
-
-        exit 0
-fi
-
-if [ "$instance" = "Soffice" ] ; then
-        echo "state = tiled"
-
-        exit 0
-fi
-
 if [ "$instance" = "Zathura" ] ; then
         echo "state = tiled"
 
@@ -53,40 +36,26 @@ if [ "$instance" = "Zathura" ] ; then
 fi
 
 if [ "$instance" = "Steam" ] ; then
-        echo "desktop = ^21"
-        #echo "state = floating"
+        #echo "desktop = ^22"
+        echo "desktop = ^9"
 
         exit 0
 fi
 
 if [ "$instance" = "ncmpcpp" ] ; then
-        echo "desktop = ^22"
-        #echo "state = floating"
-
-        exit 0
-fi
-
-if [ "$instance" = "weechat" ] ; then
-        echo "desktop = ^23"
-        #echo "state = floating"
+        #echo "desktop = ^23"
+        echo "desktop = ^10"
 
         exit 0
 fi
 
 if [ "$instance" = "discord" ] ; then
-        echo "desktop = ^24"
-        #echo "state = floating"
+        #echo "desktop = ^24"
+        echo "desktop = ^10"
 
         exit 0
 fi
 
-if [ "$instance" = "Spotify" ] ; then
-	sleep 5 &&
-        echo "desktop = ^14"
-        #echo "state = floating"
-
-        exit 0
-fi
 
 # preferred split directions:
 horiPref=east

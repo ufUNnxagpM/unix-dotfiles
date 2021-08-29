@@ -1,6 +1,14 @@
 - hosts: debian
   become: yes
   tasks:
+    - name: Hold kubelet
+      dpkg_selections:
+        name: kubelet
+        selection: hold
+    - name: Hold kubectl
+      dpkg_selections:
+        name: kubectl
+        selection: hold
     - name: Update repos and packages
       apt:
         upgrade: yes
