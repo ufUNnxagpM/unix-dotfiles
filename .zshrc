@@ -3,18 +3,15 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/$(whoami)/.oh-my-zsh
-  export EDITOR='nvim'
+export EDITOR='nvim'
 
 # Jetbrains wm fix
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# Fix ant errors
-export ANT_HOME=/usr/share/apache-ant
-
+# Paths
 export PATH=$PATH:$HOME/.bin
 export PATH=$PATH:$HOME/.scripts
 export PATH=$PATH:$HOME/go/bin
-
 export GOPATH=$HOME/go
 
 # Aliases
@@ -24,6 +21,7 @@ alias off='sleep 1; xset dpms force off'
 alias pingg='ping -c 3 8.8.8.8'
 alias sizesort='du -m --max-depth 1 | sort -n'
 alias weather='curl wttr.in'
+alias lock='betterlockscreen -l'
 DEFAULT_USER=$(whoami)
 
 # Kubernetes
@@ -71,7 +69,7 @@ ZSH_THEME="jreese"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
