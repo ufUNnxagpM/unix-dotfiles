@@ -20,6 +20,7 @@ alias startx='startx -- -ardelay 200 -arinterval 30'
 alias off='sleep 1; xset dpms force off'
 alias pingg='ping -c 3 8.8.8.8'
 alias sizesort='du -m --max-depth 1 | sort -n'
+alias sizeof='du --max-depth=0 -h'
 alias weather='curl wttr.in'
 alias lock='betterlockscreen -l'
 DEFAULT_USER=$(whoami)
