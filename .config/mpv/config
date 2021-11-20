@@ -61,16 +61,16 @@ volume=100                              # default volume, 100 = unchanged
 
 #glsl-shader="~~/FSRCNNX_x2_16-0-4-1.glsl"
 #glsl-shader="~~/FSRCNNX_x2_8-0-4-1.glsl"
-glsl-shader="~~/ravu-lite-r4.hook"
+#glsl-shader="~~/ravu-lite-r4.hook"
 #glsl-shader="~~/Anime4K/Anime4K_Upscale_CNN_UL_x2_Deblur.glsl"
-#glsl-shader="~~/Anime4K/Anime4K_DarkLines_HQ.glsl"
+glsl-shaders="~~/shaders/Anime4K_Clamp_Highlights.glsl:~~/shaders/Anime4K_Restore_CNN_M.glsl:~~/shaders/Anime4K_Upscale_CNN_x2_M.glsl:~~/shaders/Anime4K_AutoDownscalePre_x2.glsl:~~/shaders/Anime4K_AutoDownscalePre_x4.glsl:~~/shaders/Anime4K_Upscale_CNN_x2_S.glsl"
 
 
 #scale=ewa_hanning
 scale-radius=3.2383154841662362
 profile=gpu-hq
-vo=gpu
-gpu-api=vulkan
+vo=libmpv
+#gpu-api=vulkan
 tscale=oversample
 interpolation
 video-sync=display-resample

@@ -34,7 +34,7 @@ call plug#end()
 let g:ale_set_highlights = 0
 
 " Airline/status bar
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=0
 let g:airline#extensions#tabline#enabled=1
 let g:airline_theme="bubblegum"
 let g:notes_directories = ['~/cloud/Documents/USC/notes']
