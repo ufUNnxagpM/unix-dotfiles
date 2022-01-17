@@ -11,8 +11,10 @@ export PATH=$PATH:$HOME/.bin
 export PATH=$PATH:$HOME/.scripts
 export PATH=$PATH:$HOME/go/bin
 export GOPATH=$HOME/go
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # Aliases
+alias vpn='sudo openvpn /opt/homebrew/etc/openvpn/client/client.conf'
 alias pingg='ping -c 3 8.8.8.8'
 alias sizesort='du -m --max-depth 1 | sort -n'
 alias sizeof='du --max-depth=0 -h'
