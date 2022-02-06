@@ -19,12 +19,10 @@ alias pingg='ping -c 3 8.8.8.8'
 alias sizesort='du -m --max-depth 1 | sort -n'
 alias sizeof='du --max-depth=0 -h'
 alias weather='curl wttr.in'
+alias dstopall='docker stop $(docker ps -q)'
 DEFAULT_USER=$(whoami)
 
-function mm() {
-    mpv --no-video --ytdl-format=bestaudio ytdl://ytsearch:"$@"
-}
-
+source ./.funcs.sh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
