@@ -10,7 +10,7 @@ ytdl-format=bestvideo+bestaudio/best
 #########
 
 cache=yes
-demuxer-max-bytes=1024KiB
+# demuxer-max-bytes=1024KiB
 
 #############
 # Subtitles #
