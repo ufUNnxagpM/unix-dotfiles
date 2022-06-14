@@ -58,8 +58,8 @@ syntax on		" enable syntax highlighting
 
 " other optional settings
 "set hlsearch		" highlight search patterns
-"set ignorecase		" ignore case
-"set smartcase		" ignore case when the pattern contains lowercase letters only
+set ignorecase		" ignore case
+set smartcase		" ignore case when the pattern contains lowercase letters only
 "set showtabline=2	" always show tab page labels
 "set number		" display line numbers
 
