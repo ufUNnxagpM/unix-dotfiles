@@ -27,20 +27,17 @@ Plug 'lervag/vimtex'
 " Plug 'Shougo/neco-syntax'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
+Plug 'khaveesh/vim-fish-syntax'
 call plug#end()
 
 " ALE
 let g:ale_set_highlights = 0
 
 " Airline/status bar
-let g:airline_powerline_fonts=0
+let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline_theme="bubblegum"
-let g:notes_directories = ['~/cloud/Documents/USC/notes']
-
-" deoplete
-let g:deoplete#enable_at_startup = 1
 
 " vimtex
 let g:vimtex_enabled = 1
