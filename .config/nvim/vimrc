@@ -39,7 +39,7 @@ let g:deoplete#enable_at_startup = 1
 highlight Pmenu      cterm=none   ctermbg=0  ctermfg=none
 highlight CocPum      cterm=none   ctermbg=Red  ctermfg=none
 highlight CocSymbol   cterm=none   ctermbg=Red   ctermfg=none
-highlight CocMenuSel   cterm=none   ctermbg=Gray   ctermfg=none
+highlight CocMenuSel   cterm=none   ctermbg=8   ctermfg=0
 
 " coc config
 source ~/.config/nvim/coc.vim
