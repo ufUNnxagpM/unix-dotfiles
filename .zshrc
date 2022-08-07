@@ -6,11 +6,8 @@ export ZSH=/Users/$(whoami)/.oh-my-zsh
 export EDITOR='nvim'
 
 # Paths
-export PATH=$PATH:$HOME/.bin
-export PATH=$PATH:$HOME/.scripts
 export PATH=$PATH:$HOME/go/bin
 export GOPATH=$HOME/go
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # Aliases
 alias wanip='curl ifconfig.me'
@@ -20,8 +17,6 @@ alias sizeof='du --max-depth=0 -h'
 alias weather='curl wttr.in'
 alias dstopall='docker stop $(docker ps -q)'
 DEFAULT_USER=$(whoami)
-
-source ~/.funcs.sh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
