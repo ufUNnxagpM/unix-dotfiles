@@ -1,34 +1,20 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
 set smartcase
 
 " Vim-Plug
 call plug#begin('~/.vim/plugged')
 Plug 'lervag/vimtex'
-" Plug 'jiangmiao/auto-pairs'
-" Plug 'jlanzarotta/bufexplorer'
-" Plug 'kien/ctrlp.vim'
-" Plug 'scrooloose/nerdtree'
-" Plug 'xolox/vim-misc'
-" Plug 'xolox/vim-notes'
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-" Plug 'deoplete-plugins/deoplete-jedi'
-" Plug 'Shougo/deoplete-clangx'
-" Plug 'wokalski/autocomplete-flow'
-" Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp'
-" Plug 'Shougo/neco-syntax'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dense-analysis/ale'
 Plug 'khaveesh/vim-fish-syntax'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " ALE
@@ -36,7 +22,6 @@ let g:ale_set_highlights = 0
 
 " Airline/status bar
 let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled=1
 let g:airline_theme="bubblegum"
 
 " vimtex
