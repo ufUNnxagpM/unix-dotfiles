@@ -16,6 +16,7 @@ Plug 'dense-analysis/ale'
 Plug 'khaveesh/vim-fish-syntax'
 Plug 'tpope/vim-fugitive'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'cocopon/iceberg.vim'
 call plug#end()
 
 " ALE
@@ -23,7 +24,7 @@ let g:ale_set_highlights = 0
 
 " Airline/status bar
 let g:airline_powerline_fonts=1
-let g:airline_theme="bubblegum"
+let g:airline_theme="iceberg"
 
 " vimtex
 let g:vimtex_enabled = 1
@@ -35,14 +36,14 @@ let g:vimtex_quickfix_autoclose_after_keystrokes = 2
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
-" Highlight colors
-highlight Pmenu      cterm=none   ctermbg=0  ctermfg=none
-highlight CocPum      cterm=none   ctermbg=Red  ctermfg=none
-highlight CocSymbol   cterm=none   ctermbg=Red   ctermfg=none
-highlight CocMenuSel   cterm=none   ctermbg=8   ctermfg=0
-
 " coc config
 source ~/.config/nvim/coc.vim
+
+" Set colorscheme, except for background to match terminal
+colorscheme iceberg
+highlight Normal ctermbg=none guibg=none
+highlight SignColumn ctermbg=none guibg=none
+highlight LineNr ctermbg=none guibg=none
 
 syntax on
 filetype plugin indent on
