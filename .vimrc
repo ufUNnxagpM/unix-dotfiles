@@ -15,6 +15,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'dense-analysis/ale'
 Plug 'khaveesh/vim-fish-syntax'
 Plug 'tpope/vim-fugitive'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " ALE
@@ -30,6 +31,18 @@ let g:vimtex_compiler_method = "latexmk"
 let g:tex_flavor = 'latex'
 let maplocalleader = ","
 let g:vimtex_quickfix_autoclose_after_keystrokes = 2
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+" Highlight colors
+highlight Pmenu      cterm=none   ctermbg=0  ctermfg=none
+highlight CocPum      cterm=none   ctermbg=Red  ctermfg=none
+highlight CocSymbol   cterm=none   ctermbg=Red   ctermfg=none
+highlight CocMenuSel   cterm=none   ctermbg=Gray   ctermfg=none
+
+" coc config
+source ~/.coc.vim
 
 syntax on
 filetype plugin indent on

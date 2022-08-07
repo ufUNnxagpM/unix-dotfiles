@@ -169,17 +169,11 @@ nnoremap C yy|xnoremap C y|
 nnoremap V p|xnoremap V p|
 nnoremap <C-c> "+Y| " <C-c> with no selection copies current line to clipboard
 nnoremap <C-x> "+dd| " <C-x> with no selection cuts current line to clipboard
-" (GUI) Make <C-c>/<C-v> work also in command mode, but must be selected using the mouse
-cnoremap <C-c> <C-y>|
-cnoremap <C-Insert> <C-y>|
-cnoremap <C-v> <C-r>+|
-cnoremap <S-Insert> <C-r>+|
 
 " Undo/redo
 nnoremap z u|xnoremap z :<C-u>undo<CR>|
 nnoremap gz U|xnoremap gz U<C-u>undo<CR>|
 nnoremap Z <C-r>|xnoremap Z :<C-u>redo<CR>|
-inoremap <CR> <C-g>u<CR>| " Break undo chain (Tip #1054)
 
 " Cursor position jumplist
 nnoremap ( <C-o>|
@@ -203,29 +197,6 @@ cnoreabbr <expr> e    (getcmdtype() . getcmdline() != ':e'    ? 'e'    : 'tabedi
 cnoreabbr <expr> ed   (getcmdtype() . getcmdline() != ':ed'   ? 'ed'   : 'tabedit' )
 cnoreabbr <expr> edi  (getcmdtype() . getcmdline() != ':edi'  ? 'edi'  : 'tabedit' )
 cnoreabbr <expr> edit (getcmdtype() . getcmdline() != ':edit' ? 'edit' : 'tabedit' )
-
-" (GUI) Start/end of document
-nnoremap <C-S-Home> <S-Home>gg|vnoremap <C-S-Home> <S-Home>gg|inoremap <C-S-Home> <S-Home>gg|
-nnoremap <C-Home> gg0|xnoremap <C-Home> gg0|snoremap <C-Home> <C-Home><Home>|inoremap <C-Home> <C-o>gg<C-o>0|
-nnoremap <C-j> gg0|xnoremap <C-j> gg0|snoremap <C-j> <C-Home><Home>|
-nnoremap <C-End> G$|xnoremap <C-End> G$|snoremap <C-End> <C-End><End>|inoremap <C-End> <C-o>G<C-o>$|
-nnoremap <C-h> G$|xnoremap <C-h> G$|snoremap <C-h> <C-End><End>|
-
-" (GUI) Move cursor to top/bottom of screen
-nnoremap <C-PageUp> H|vnoremap <C-PageUp> H|inoremap <C-PageUp> <C-o>H|
-nnoremap <C-PageDown> L|vnoremap <C-PageDown> L|inoremap <C-PageDown> <C-o>L|
-
-" (GUI) Scroll in place
-nnoremap <C-Up> <C-y>|inoremap <C-Up> <C-o><C-y>|
-nnoremap <C-Down> <C-e>|inoremap <C-Down> <C-o><C-e>|
-
-" (GUI) Live line reordering (very useful)
-nnoremap <silent> <C-S-Up> :move .-2<CR>|
-nnoremap <silent> <C-S-Down> :move .+1<CR>|
-vnoremap <silent> <C-S-Up> :move '<-2<CR>gv|
-vnoremap <silent> <C-S-Down> :move '>+1<CR>gv|
-inoremap <silent> <C-S-Up> <C-o>:move .-2<CR>|
-inoremap <silent> <C-S-Down> <C-o>:move .+1<CR>|
 
 " inSert/Replace/append (T)
 nnoremap s i|
@@ -252,13 +223,6 @@ nnoremap <C-b> <C-v>|
 " Allow switching from visual line to visual block mode
 vnoremap <silent> <expr> <C-b> (mode() =~# "[vV]" ? "\<C-v>0o$" : "")
 
-" (GUI) Visual mode with mouse
-noremap <C-LeftMouse> <LeftMouse><Esc><C-v>|
-noremap <S-LeftMouse> <LeftMouse><Esc>V|
-noremap <C-LeftDrag> <LeftDrag>|
-" Insert literal
-inoremap <C-b> <C-v>|cnoremap <C-b> <C-v>|
-
 " Search
 " f unchanged
 " F unchanged
@@ -268,14 +232,6 @@ nnoremap b ;|xnoremap b ;|onoremap b ;|
 nnoremap B ,|xnoremap B ,|onoremap B ,|
 nnoremap k n|xnoremap k n|onoremap k n|
 nnoremap K N|xnoremap K N|onoremap K N|
-
-" (GUI) search
-nnoremap <C-f> :<C-u>promptrepl<CR>|vnoremap <C-f> :<C-u>promptrepl<CR>|inoremap <C-f> <C-o>:<C-u>promptrepl<CR>
-nnoremap <F3> n|vnoremap <F3> n|inoremap <F3> <C-o>n|
-nnoremap <S-F3> N|vnoremap <S-F3> N|inoremap <S-F3> <C-o>N|
-nnoremap <C-F3> *|vnoremap <C-F3> *|inoremap <C-F3> <C-o>*|
-nnoremap <C-S-F3> #|vnoremap <C-S-F3> #|inoremap <C-S-F3> <C-o>#|
-"http://xona.com/2005/08/02.html
 
 " Redraw screen
 "nnoremap <C-r> <C-l>|vnoremap <C-r> <C-l>|
@@ -288,16 +244,6 @@ function! CloseWindow()
     if winheight(2) < 0 | confirm quit | else | confirm close | endif
 endfunction
 "nnoremap <silent> <C-s> :<C-u>update<CR>|inoremap <C-s> <C-o>:<C-u>update<CR>|
-
-" (GUI) open
-nnoremap <C-o> :<C-u>browse tabnew<CR>|vnoremap <C-o> :<C-u>browse tabnew<CR>|
-
-" (GUI) Tabs
-"noremap <silent> <C-S-> :<C-u>tabprev<CR>|
-"noremap <silent> <C-Tab> :<C-u>tabnext<CR>|
-"noremap <silent> <C-> :<C-u>tabprev<CR>|
-noremap <silent> <C-]> :<C-u>tabnext<CR>|
-
 
 " Restore mappings
 " Free mappings: ,/+/H/~
@@ -365,9 +311,9 @@ inoremap <M-?> <C-p>|
 inoremap <M-/> <C-n>|
 
 " Omni completion
-inoremap <C-S-Space> <C-p>|
-inoremap <expr> <C-Space> (&omnifunc == '' <bar><bar> pumvisible() ? "\<C-n>" : "\<C-x>\<C-o>")
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <C-S-Space> <C-p>|
+"inoremap <expr> <C-Space> (&omnifunc == '' <bar><bar> pumvisible() ? "\<C-n>" : "\<C-x>\<C-o>")
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "Tip #1386, Make Vim completion popup menu work just like in an IDE
 "set completeopt=longest,menuone
