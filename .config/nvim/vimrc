@@ -42,8 +42,8 @@ highlight CocSymbol   cterm=none   ctermbg=Red   ctermfg=none
 highlight CocMenuSel   cterm=none   ctermbg=Gray   ctermfg=none
 
 " coc config
-source ~/.coc.vim
+source ~/.config/nvim/coc.vim
 
 syntax on
 filetype plugin indent on
-source ~/.colemak.vim
+source ~/.config/nvim/colemak.vim
