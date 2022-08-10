@@ -12,7 +12,7 @@ alias pingg='ping -c 3 8.8.8.8'
 alias sizesort='du -m --max-depth 1 | sort -n'
 alias sizeof='du --max-depth=0 -h'
 alias weather='curl wttr.in'
-alias dstopall='docker stop $(docker ps -q)'
+alias dstopall='docker stop (docker ps -q)'
 
 set -U fish_greeting
 starship init fish | source
