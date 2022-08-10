@@ -21,9 +21,16 @@ let g:airline_theme="iceberg"
 
 " coc config
 source ~/.config/nvim/coc.vim
+let g:ale_linters = {'rust': ['rust-analyzer']}
 
 " nvim-tree config
 luafile ~/.config/nvim/nvim-tree.lua
 nnoremap <leader>tt : NvimTreeToggle<CR>
 nnoremap <leader>tf : NvimTreeFocus<CR>
 nnoremap <leader>tc : NvimTreeCollapse<CR>
+
+" Set colorscheme, except for background to match terminal
+colorscheme iceberg
+highlight Normal ctermbg=none guibg=none
+highlight SignColumn ctermbg=none guibg=none
+highlight LineNr ctermbg=none guibg=none
