@@ -6,11 +6,22 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'dense-analysis/ale'
 Plug 'khaveesh/vim-fish-syntax'
 Plug 'tpope/vim-fugitive'
-Plug('neoclide/coc.nvim', {branch = 'release'})
 Plug 'cocopon/iceberg.vim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'kyazdani42/nvim-web-devicons' -- optional, for file icons
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'neovim/nvim-lspconfig'
+
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+
+Plug 'simrat39/rust-tools.nvim'
+Plug('mtoohey31/cmp-fish', {ft = "fish"})
 vim.call('plug#end')
 
 -- ALE
@@ -18,11 +29,11 @@ vim.g.ale_set_highlights = 0
 
 -- Airline/status bar
 vim.g.airline_powerline_fonts = 1
-vim.g.airline_theme = iceberg
+vim.g.airline_theme = "iceberg"
 
--- coc config
-vim.cmd('source ~/.config/nvim/coc.vim')
-vim.g.ale_linters = {rust = {'rust-analyzer'}}
+-- nvim-cmp
+vim.o.completeopt = "menu,menuone,noselect"
+require('nvim-cmp')
 
 -- nvim-tree config
 require("nvim-tree").setup()
