@@ -9,3 +9,9 @@ In addition, this repository also has the configs I post in the [Linux ricing co
 |Terminal| iTerm       |
 |Editor  | Neovim      |
 |Shell   | fish        |
+
+## Install
+
+```Shell
+git clone --bare git@github.com:MattTreadwell/unix-dotfiles.git $HOME/.unix-dotfiles
+```
