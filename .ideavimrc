@@ -2,7 +2,8 @@ set ignorecase
 set smartcase
 set scrolloff=3         " 3 lines above/below cursor when scrolling
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
-
+set whichwrap=b,s,[,],<,>,h,l " allow cursor to wrap between lines
+set mouse=nvi
 
 " ============================================================================
 " Movement

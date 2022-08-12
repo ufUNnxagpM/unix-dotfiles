@@ -1,3 +1,9 @@
 # Ignore all except dotfiles
-*
-!.*
+*.*
+**/
+!.config
+!.config/starship.toml
+!.config/*
+!.ideavimrc
+!.gitignore
+!.zshrc

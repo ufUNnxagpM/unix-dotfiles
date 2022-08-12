@@ -1,0 +1,6 @@
+require('user.keymap')
+require('user.nvim-cmp')
+require('user.options')
+require('user.plugin-opts')
+require('user.plugin')
+require('user.theme')

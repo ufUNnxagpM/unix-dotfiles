@@ -35,33 +35,6 @@
 " S - Shift, C - Ctrl
 " (c - command line, i - insert mode, n - normal mode, v - visual+select mode)
 "
-if v:version < 700 | echohl WarningMsg | echo "colemak.vim: You need Vim version 7.0 or later" | echohl None | finish | endif
-
-" incompatible scripts: matchit.vim (fix available)
-
-" recommended settings, enabled by default
-set nocompatible	" make Vim behave in a more useful way
-set nostartofline	" keep cursor in the same column if possible
-set whichwrap=b,s,[,],<,>,h,l " allow cursor to wrap between lines
-set virtualedit=block	" allow virtual editing in Visual block mode
-set lazyredraw		" don't redraw screen while executing macros/mappings
-set scrolloff=1		" minimal number of screen lines to keep above and below the cursor
-set incsearch		" enable incremental search
-set backspace=indent,eol,start  " allow backspacing over everything in insert mode
-set winaltkeys=no	" allow mapping of alt (meta) key shortcuts
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-syntax on		" enable syntax highlighting
-
-" recommended settings, but not enabled by default
-"if has("gui_running") | source $VIMRUNTIME/mswin.vim | endif
-
-" other optional settings
-"set hlsearch		" highlight search patterns
-set ignorecase		" ignore case
-set smartcase		" ignore case when the pattern contains lowercase letters only
-"set showtabline=2	" always show tab page labels
-"set number		" display line numbers
 
 " Make Alt pop up the menu for all keys, mappings in use will be overridden subsequentially
 noremap <silent> <M-a> :simalt a<CR>|noremap <silent> <M-b> :simalt b<CR>|noremap <silent> <M-c> :simalt c<CR>|
