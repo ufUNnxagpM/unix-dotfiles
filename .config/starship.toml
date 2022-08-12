@@ -146,5 +146,5 @@ symbol = "🅢 "
 symbol = " "
 
 [kubernetes]
-format = 'on [⎈ $cluster/$namespace](dimmed green) '
+format = 'on [⎈ $cluster/$namespace](blue) '
 disabled = false

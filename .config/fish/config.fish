@@ -2,18 +2,14 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [ -e /opt/homebrew/bin/brew ]
+    eval (/opt/homebrew/bin/brew shellenv)
+end
 export EDITOR='nvim'
 export GOPATH=$HOME/go
 
-# Aliases
-alias wanip='curl ifconfig.me'
-alias pingg='ping -c 3 8.8.8.8'
-alias sizesort='du -m --max-depth 1 | sort -n'
-alias sizeof='du --max-depth=0 -h'
-alias weather='curl wttr.in'
+# fish-syntax aliases
 alias dstopall='docker stop (docker ps -q)'
-alias dgit='/usr/bin/git --git-dir=$HOME/.unix-dotfiles/ --work-tree=$HOME'
 
 
 set -U fish_greeting
