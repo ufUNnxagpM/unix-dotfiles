@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
+  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
   use 'dense-analysis/ale'
   use 'khaveesh/vim-fish-syntax'
   use 'tpope/vim-fugitive'

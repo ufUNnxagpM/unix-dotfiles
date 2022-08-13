@@ -1,8 +1,9 @@
 -- ALE
 vim.g.ale_set_highlights = 0
 
--- Airline/status bar
-vim.g.airline_powerline_fonts = 1
+-- bufferline
+vim.opt.termguicolors = true
+require("bufferline").setup{}
 
 -- nvim-cmp
 vim.o.completeopt = "menu,menuone,noselect"
