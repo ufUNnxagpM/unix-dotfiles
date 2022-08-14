@@ -29,6 +29,10 @@ return require('packer').startup(function(use)
   use 'kyazdani42/nvim-web-devicons' -- optional, for file icons
   use 'kyazdani42/nvim-tree.lua'
   use 'neovim/nvim-lspconfig'
+  use {
+  'nvim-telescope/telescope.nvim', tag = '0.1.0',
+  requires = { {'nvim-lua/plenary.nvim'} }
+  }
 
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'

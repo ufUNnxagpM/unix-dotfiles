@@ -13,3 +13,6 @@ require("nvim-tree").setup()
 vim.api.nvim_set_keymap('n', '<leader>tt', ': NvimTreeToggle<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>tf', ': NvimTreeFocus<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>tc', ': NvimTreeCollapse<CR>', { noremap = true, silent = true })
+
+-- telescope config
+vim.api.nvim_set_keymap('n', '<leader>ff', ': Telescope find_files<CR>', { noremap = true, silent = true})
