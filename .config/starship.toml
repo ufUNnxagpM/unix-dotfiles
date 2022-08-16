@@ -1,6 +1,5 @@
 add_newline = false
 
-# Which is equivalent to
 format = """
 $username\
 $hostname\
@@ -59,10 +58,6 @@ $nix_shell\
 $conda\
 $spack\
 $memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$azure\
 $env_var\
 $crystal\
 $custom\
@@ -146,5 +141,5 @@ symbol = "🅢 "
 symbol = " "
 
 [kubernetes]
-format = 'on [⎈ $(cluster)/$namespace](blue) '
+format = 'on [⎈ $cluster/$namespace](blue) '
 disabled = false

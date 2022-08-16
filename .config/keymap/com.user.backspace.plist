@@ -1,0 +1,17 @@
+?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.mtreadwell.backspace</string>
+    <key>ProgramAruments</key>
+    <array>
+        <string>/usr/local/bin/keymap</string>
+        <string>map</string>
+        <string>caps</string>
+        <string>delete</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+</dict>
+</plist>
