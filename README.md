@@ -13,7 +13,7 @@ In addition, this repository also has the configs I post in the [Linux ricing co
 ## Install
 
 ```Shell
-git clone --bare git@github.com:MattTreadwell/unix-dotfiles.git $HOME/.unix-dotfiles && \
+git clone --bare git@github.com:ufUNnxagpM/unix-dotfiles.git $HOME/.unix-dotfiles && \
     alias dgit='/usr/bin/git --git-dir=$HOME/.unix-dotfiles/ --work-tree=$HOME' && \
     dgit reset
 ```
