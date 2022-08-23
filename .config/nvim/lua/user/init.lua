@@ -1,4 +1,4 @@
-require('user.keymap')
+require('user.colemak')
 require('user.options')
 require('user.plugin')
 require('user.theme')
