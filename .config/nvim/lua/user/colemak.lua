@@ -1,14 +1,4 @@
--- Redesigned mapping for the Colemak layout for Vim 7.0
--- 2008-04-21 Shai Coleman, http://colemak.com/ . Public domain. 
---
--- * Use ":source colemak.vim" (without quotes) to load this file. Adjust path to colemak.vim if needed.
--- * Add the line: "source colemak.vim" (without quotes) in your .vimrc file to automatically load this file. 
---   It is recommended to load colemak.vim after all other Vim scripts.
---
--- recommended commands for running under Linux console
--- $ export TERM=xterm    # make Backspace and Ctrl-H work correctly
--- $ stty -ixon -ixoff    # make Ctrl+S and Ctrl+Q work correctly
---
+-- Colemak layout for Neovim
 --
 -- Colemak layout:                  |                 QWERTY layout:
 -- `12345 67890-=     Move Around:  |  (instead of)   `12345 67890-=
@@ -17,25 +7,108 @@
 --  zxcvb km,./            e        |       j          zxcvb nm,./
 -- 
 -- (nv  )     n =Left       ,     i =Right   ,    u =Up    ,     e =Down      
--- (nv  )     N =Left*5     ,     I =Right*5 ,    U =Up*5  ,     E =Down*5    
--- (  ic)  <M-n>=Left       ,  <M-i>=Right   , <M-u>=Up    ,  <M-e>=Down      
--- (  ic)  <M-N>=Left*5     ,  <M-I>=Right*5 , <M-U>=Up*5  ,  <M-E>=Down*5    
 -- (nv  )    l =Left 1 word ,     y =Right 1 word
 -- (nv  ) <C-l>=Left 1 WORD ,  <C-y>=Right 1 WORD
 -- (nv  )    L =Home        ,     Y =End                   
 -- (nv  )    j =PageUp      ,     h =PageDown              
--- (nv  ) <C-j>=File start  ,  <C-h>=File end
 -- (nv  )    - =First line  ,     _ =Last line,  <count>-=Goto line #
--- (nvi )         <Tab>=Escape  (also stops search highlight in normal mode)
--- (   c)       <S-Tab>=Escape
--- (nvi )       <S-Tab>=Tab
 -- (nvic)       <Space>=Space
 -- ( v  )     <S-Space>=Undo space
 -- Legend:
 -- S - Shift, C - Ctrl
 -- (c - command line, i - insert mode, n - normal mode, v - visual+select mode)
 
+-- Leader key
 vim.g.mapleader = ","
+
+-- Wrapper for vim.api.nvim_set_keymap that expands the first param for mapping multiple modes at once
+local function nvim_multimode_set_keymap(modes,lhs,rhs,opts)
+    for i=1, #modes do
+        local mode = modes:sub(i,i)
+        vim.api.nvim_set_keymap(mode,lhs,rhs,opts)
+    end
+end
+
+-- Navigation
+nvim_multimode_set_keymap("nxo", 'n', 'h', { noremap = true })
+nvim_multimode_set_keymap("nxo", 'u', 'k', { noremap = true })
+nvim_multimode_set_keymap("nxo", 'e', 'j', { noremap = true })
+nvim_multimode_set_keymap("nxo", 'i', 'l', { noremap = true })
+-- Home/end of line
+nvim_multimode_set_keymap("nxo", 'L', '^', { noremap = true })
+nvim_multimode_set_keymap("nxo", 'Y', '$', { noremap = true })
+-- WORD left/right
+nvim_multimode_set_keymap("nvo", '<C-l>', 'B', { noremap = true })
+nvim_multimode_set_keymap("nvo", '<C-y>', 'W', { noremap = true })
+-- Words forwards/backwards
+nvim_multimode_set_keymap("nxo", 'l', 'b', { noremap = true })
+nvim_multimode_set_keymap("nxo", 'y', 'w', { noremap = true })
+-- Cut/copy/paste
+vim.api.nvim_set_keymap('n', 'x', 'x', { noremap = true }); vim.api.nvim_set_keymap('x', 'x', 'd', { noremap = true })
+nvim_multimode_set_keymap("nx", 'c', 'y', { noremap = true })
+nvim_multimode_set_keymap("nx", 'v', 'gP', { noremap = true })
+vim.api.nvim_set_keymap('n', 'X', 'dd', { noremap = true }); vim.api.nvim_set_keymap('x', 'X', 'd', { noremap = true })
+vim.api.nvim_set_keymap('n', 'C', 'yy', { noremap = true }); vim.api.nvim_set_keymap('x', 'C', 'y', { noremap = true })
+nvim_multimode_set_keymap("nx", 'V', 'p', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-c>', '"+Y', { noremap = true }) -- <C-c> with no selection copies current line to clipboard)
+vim.api.nvim_set_keymap('n', '<C-x>', '"+dd', { noremap = true }) -- <C-x> with no selection cuts current line to clipboard 
+-- Search
+-- f unchanged
+-- F unchanged
+nvim_multimode_set_keymap("nxo", 'p', 't', { noremap = true })
+nvim_multimode_set_keymap("nxo", 'P', 'T', { noremap = true })
+nvim_multimode_set_keymap("nxo", 'b', ';', { noremap = true })
+nvim_multimode_set_keymap("nxo", 'B', ',', { noremap = true })
+nvim_multimode_set_keymap("nxo", 'k', 'n', { noremap = true })
+nvim_multimode_set_keymap("nxo", 'K', 'N', { noremap = true })
+-- Change
+nvim_multimode_set_keymap("nx", 'w', 'c', { noremap = true })
+nvim_multimode_set_keymap("nx", 'W', 'C', { noremap = true })
+vim.api.nvim_set_keymap('n', 'ww', 'cc', { noremap = true })
+-- inSert/Replace/append (T)
+vim.api.nvim_set_keymap('n', 's', 'i', { noremap = true })
+vim.api.nvim_set_keymap('n', 'S', 'I', { noremap = true })
+vim.api.nvim_set_keymap('n', 't', 'a', { noremap = true })
+vim.api.nvim_set_keymap('n', 'T', 'A', { noremap = true })
+-- inneR text objects
+-- e.g. dip (delete inner paragraph) is now drp
+vim.api.nvim_set_keymap('o', 'r', 'i', { noremap = true })
+-- Jump to line
+nvim_multimode_set_keymap('nxo', '-', 'gg', { noremap = true })
+nvim_multimode_set_keymap('nxo', '_', 'G', { noremap = true })
+-- Map ; to :
+nvim_multimode_set_keymap('nx', ';', ':', { noremap = true })
+-- Folds, etc.
+nvim_multimode_set_keymap('nx', 'ff', 'zf', { noremap = true })
+nvim_multimode_set_keymap('nx', 'fo', 'zo', { noremap = true })
+nvim_multimode_set_keymap('nx', 'fc', 'zc', { noremap = true })
+-- Misc overridden keys must be prefixed with g
+nvim_multimode_set_keymap('nx', 'gs', 's', { noremap = true })
+nvim_multimode_set_keymap('nx', 'gX', 'X', { noremap = true })
+nvim_multimode_set_keymap('nx', 'gU', 'U', { noremap = true })
+nvim_multimode_set_keymap('nx', 'gQ', 'Q', { noremap = true })
+nvim_multimode_set_keymap('nx', 'gK', 'K', { noremap = true })
+-- extra alias
+nvim_multimode_set_keymap('nx', 'gh', 'K', { noremap = true })
+-- Enter, open line
+vim.api.nvim_set_keymap('n', '<CR>', 'i<CR><Esc>', { noremap = true })
+vim.api.nvim_set_keymap('i', '<S-CR>', '<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<S-CR>', 'O<Esc>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-CR>', 'o<Esc>', { noremap = true })
+vim.api.nvim_set_keymap('i', '<C-CR>', '<C-o>o', { noremap = true })
+-- Cursor position jumplist
+vim.api.nvim_set_keymap('n', '(', '<C-o>', { noremap = true })
+vim.api.nvim_set_keymap('n', '(', '<C-i>', { noremap = true })
+-- Window handling: <C-w> is now <C-r>
+nvim_multimode_set_keymap('nx', '<C-r>', '<C-w>', { noremap = true })
+-- <C-r><C-r> opens a new window
+nvim_multimode_set_keymap('nx', '<C-r><C-r>', '<C-w>n', { noremap = true })
+nvim_multimode_set_keymap('nx', '<C-r>n', '<C-w>h', { noremap = true })
+nvim_multimode_set_keymap('nx', '<C-r>e', '<C-w>k', { noremap = true })
+nvim_multimode_set_keymap('nx', '<C-r>u', '<C-w>j', { noremap = true })
+nvim_multimode_set_keymap('nx', '<C-r>i', '<C-w>l', { noremap = true })
+-- Macros (replay the macro recorded by qq)
+vim.api.nvim_set_keymap('n', 'Q', '@q', { noremap = true })
 
 -- Make Alt pop up the menu for all keys, mappings in use will be overridden subsequentially
 local alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -44,50 +117,23 @@ for i = 1, #alphabet do
     vim.api.nvim_set_keymap('', string.format('<M-%s>', letter), string.format(':simalt %s<CR>', letter), { noremap = true, silent = true })
 end
 
+-- Switch tabs by number
+for i = 1,9 do
+    vim.api.nvim_set_keymap('', string.format('g%d', i), string.format('%dgt', i), { noremap = true })
+end
+
 vim.cmd([[
-"" Turbo navigation mode
-"" Modified to work with counts, see :help complex-repeat
-nnoremap <silent> N @='5n'<CR>|xnoremap <silent> N @='5n'<CR>|onoremap N 5h|
-nnoremap <silent> U @='5u'<CR>|xnoremap <silent> U @='5u'<CR>|onoremap U 5k|
-nnoremap <silent> E @='5e'<CR>|xnoremap <silent> E @='5e'<CR>|onoremap E 5j|
-nnoremap <silent> I @='5i'<CR>|xnoremap <silent> I @='5i'<CR>|onoremap I 5l|
-inoremap <M-N> <C-o>5h|cnoremap <M-N> <Left><Left><Left><Left><Left>|
-inoremap <M-U> <C-o>5k|cnoremap <M-U> <Up><Up><Up><Up><Up>|
-inoremap <M-E> <C-o>5j|cnoremap <M-E> <Down><Down><Down><Down><Down>|
-inoremap <M-I> <C-o>5l|cnoremap <M-I> <Right><Right><Right><Right><Right>|
-
-"" Up/down/left/right
-nnoremap n h|xnoremap n h|onoremap n h|
-nnoremap u k|xnoremap u k|onoremap u k|
-nnoremap e j|xnoremap e j|onoremap e j|
-nnoremap i l|xnoremap i l|onoremap i l|
-inoremap <M-n> <Left>|cnoremap <M-n> <Left>|
-inoremap <M-u> <Up>|cnoremap <M-u> <Up>|
-inoremap <M-e> <Down>|cnoremap <M-e> <Down>|
-inoremap <M-i> <Right>|cnoremap <M-i> <Right>|
-
-"" Home/end of line
-"" 0 unchanged
-nnoremap L ^|xnoremap L ^|onoremap L ^|
-nnoremap Y $|xnoremap Y $|onoremap Y $|
-inoremap <M-L> <Home>|cnoremap <M-L> <Home>|
-inoremap <M-Y> <End>|cnoremap <M-Y> <End>|
-
 "" PageUp/PageDown
 nnoremap <silent> <expr> j (winheight(0)-1) . "\<C-u>"
 nnoremap <silent> <expr> h (winheight(0)-1) . "\<C-d>"
 xnoremap <silent> <expr> j (winheight(0)-1) . "\<C-u>"
 xnoremap <silent> <expr> h (winheight(0)-1) . "\<C-d>"
-inoremap <silent> <expr> <M-j> "\<C-o>" . (winheight(0)-1) . "\<C-u>"
-inoremap <silent> <expr> <M-h> "\<C-o>" . (winheight(0)-1) . "\<C-d>"
 nnoremap <silent> <expr> <PageUp> (winheight(0)-1) . "\<C-u>"
 nnoremap <silent> <expr> <PageDown> (winheight(0)-1) . "\<C-d>"
 vnoremap <silent> <expr> <PageUp> (winheight(0)-1) . "\<C-u>"
 vnoremap <silent> <expr> <PageDown> (winheight(0)-1) . "\<C-d>"
 vnoremap <silent> <expr> <S-PageUp> (winheight(0)-1) . "\<C-u>"
 vnoremap <silent> <expr> <S-PageDown> (winheight(0)-1) . "\<C-d>"
-cnoremap <M-j> <PageUp>|
-cnoremap <M-h> <PageDown>|
 
 "" Half page up/down
 nnoremap <silent> <expr> <C-u> (winheight(0)/2) . "\<C-u>"
@@ -95,60 +141,10 @@ nnoremap <silent> <expr> <C-e> (winheight(0)/2) . "\<C-d>"
 vnoremap <silent> <expr> <C-u> (winheight(0)/2) . "\<C-u>"
 vnoremap <silent> <expr> <C-e> (winheight(0)/2) . "\<C-d>"
 
-"" Jump to line
-nnoremap - gg|xnoremap - gg|onoremap - gg|
-nnoremap _ G|xnoremap _ G|onoremap _ G|
-
-"" Words forwards/backwards
-nnoremap l b|xnoremap l b|onoremap l b|
-nnoremap y w|xnoremap y w|onoremap y w|
-inoremap <M-l> <C-Left>|cnoremap <M-l> <C-Left>|
-inoremap <M-y> <C-Right>|cnoremap <M-y> <C-Right>|
-"" WORD left/right
-nnoremap <C-l> B|vnoremap <C-l> B|onoremap <C-l> B|
-nnoremap <C-y> W|vnoremap <C-y> W|onoremap <C-y> W|
-
-"" inneR text objects
-"" e.g. dip (delete inner paragraph) is now drp
-onoremap r i
-
-"" End of word forwards/backwards
-""nnoremap ; e|xnoremap ; e|onoremap ; e|
-""nnoremap g; ge|xnoremap g; ge|onoremap g; ge|
-"" Folds, etc.
-"" nnoremap ; z|xnoremap ; z|
-nnoremap ff zf|xnoremap ff zf|
-nnoremap fo zo|xnoremap fo zo|
-nnoremap fc zc|xnoremap fc zc|
-"" nnoremap ; z|xnoremap ; z|
-
-"" Map ; to :
-nnoremap ; :|xnoremap ; :|
-
-"" for virtualedit=onemore
-""set virtualedit=block,onemore
-""nnoremap <End> <End><Right>|
-""snoremap <End> <End><Right>|
-""xnoremap <End> <End><Right>|
-
-"" Cut/copy/paste
-nnoremap x x|xnoremap x d|
-nnoremap c y|xnoremap c y|
-nnoremap v gP|xnoremap v gP|
-nnoremap X dd|xnoremap X d|
-nnoremap C yy|xnoremap C y|
-nnoremap V p|xnoremap V p|
-nnoremap <C-c> "+Y| " <C-c> with no selection copies current line to clipboard
-nnoremap <C-x> "+dd| " <C-x> with no selection cuts current line to clipboard
-
 "" Undo/redo
 nnoremap z u|xnoremap z :<C-u>undo<CR>|
 nnoremap gz U|xnoremap gz U<C-u>undo<CR>|
 nnoremap Z <C-r>|xnoremap Z :<C-u>redo<CR>|
-
-"" Cursor position jumplist
-nnoremap ( <C-o>|
-nnoremap ) <C-i>|
 
 "" Navigate help file
 "" Use < and > to navigate in the help file instead
@@ -169,22 +165,11 @@ cnoreabbr <expr> ed   (getcmdtype() . getcmdline() != ':ed'   ? 'ed'   : 'tabedi
 cnoreabbr <expr> edi  (getcmdtype() . getcmdline() != ':edi'  ? 'edi'  : 'tabedit' )
 cnoreabbr <expr> edit (getcmdtype() . getcmdline() != ':edit' ? 'edit' : 'tabedit' )
 
-"" inSert/Replace/append (T)
-nnoremap s i|
-nnoremap S I|
-nnoremap t a|
-nnoremap T A|
-
 "" Make insert/add work also in visual line mode like in visual block mode
 xnoremap <silent> <expr> s (mode() =~# "[V]" ? "\<C-v>0o$I" : "I")
 xnoremap <silent> <expr> S (mode() =~# "[V]" ? "\<C-v>0o$I" : "I")
 xnoremap <silent> <expr> t (mode() =~# "[V]" ? "\<C-v>0o$A" : "A")
 xnoremap <silent> <expr> T (mode() =~# "[V]" ? "\<C-v>0o$A" : "A")
-
-"" Change
-nnoremap w c|xnoremap w c|
-nnoremap W C|xnoremap W C|
-nnoremap ww cc|
 
 "" Visual mode
 nnoremap a v|xnoremap a v|
@@ -193,19 +178,6 @@ nnoremap <C-a> <Esc>ggVG$|xnoremap <C-a> <Esc>ggVG$|vnoremap <C-a> <Esc>ggVG$|
 nnoremap <C-b> <C-v>|
 "" Allow switching from visual line to visual block mode
 vnoremap <silent> <expr> <C-b> (mode() =~# "[vV]" ? "\<C-v>0o$" : "")
-
-"" Search
-"" f unchanged
-"" F unchanged
-nnoremap p t|xnoremap p t|onoremap p t|
-nnoremap P T|xnoremap P T|onoremap P T|
-nnoremap b ;|xnoremap b ;|onoremap b ;|
-nnoremap B ,|xnoremap B ,|onoremap B ,|
-nnoremap k n|xnoremap k n|onoremap k n|
-nnoremap K N|xnoremap K N|onoremap K N|
-
-"" Redraw screen
-""nnoremap <C-r> <C-l>|vnoremap <C-r> <C-l>|
 
 "" New/close/save
 noremap <silent> <C-w> :<C-u>call CloseWindow()<CR>|inoremap <silent> <C-w> <C-o>:<C-u>call CloseWindow()<CR>|cnoremap <silent> <C-w> <C-c>:<C-u>call CloseWindow()<CR>|
@@ -219,54 +191,9 @@ endfunction
 "" Restore mappings
 "" Free mappings: ,/+/H/~
 
-"" Macros (replay the macro recorded by qq)
-nnoremap Q @q|
-
-"" Duplicate line
-""nnoremap Q :copy .+0<CR>|
-
-""<C-n> <C-p>
-""@
-
-"" , is reserved for your custom remapping
-""
-
-"" Misc overridden keys must be prefixed with g
-nnoremap gs s|xnoremap gs s|
-nnoremap gX X|xnoremap gX X|
-nnoremap gU U|xnoremap gU U|
-nnoremap gQ Q|xnoremap gQ Q|
-nnoremap gK K|xnoremap gK K|
-"" extra alias
-nnoremap gh K|xnoremap gh K| 
-
-"" Window handling: <C-w> is now <C-r>
-nnoremap <C-r> <C-w>|xnoremap <C-r> <C-w>|
-"" <C-r><C-r> opens a new window
-nnoremap <C-r><C-r> <C-w>n|xnoremap <C-r><C-r> <C-w>n|
-nnoremap <C-r>n <C-w>h|xnoremap <C-r>n <C-w>h| 
-nnoremap <C-r>u <C-w>k|xnoremap <C-r>u <C-w>k| 
-nnoremap <C-r>e <C-w>j|xnoremap <C-r>e <C-w>j| 
-nnoremap <C-r>i <C-w>l|xnoremap <C-r>i <C-w>l| 
-
 nnoremap <Space> i<Space><Esc><Right>|
 xnoremap <silent> <Space> :<C-u>let b:tmp_var=&sw\|set sw=1\|normal! gv><CR>:<C-u>let &sw=b:tmp_var\|normal! gv<CR>
 xnoremap <silent> <S-Space> :<C-u>let b:tmp_var=&sw\|set sw=1\|normal! gv<<CR>:<C-u>let &sw=b:tmp_var\|normal! gv<CR>
-
-"" The Tab key is mapped to Escape. Press Shift-Tab to insert a Tab.
-"" To minimize Tab use, you can use '<', '>' and ':set autoindent'
-"" nnoremap <silent> <Tab> <Esc>:nohlsearch<bar>pclose<CR>|
-"" vnoremap <Tab> <Esc><Nul>| " <Nul> added to fix select mode problem
-"" inoremap <Tab> <Esc>|
-"" nnoremap <S-Tab> i<Tab><Esc><Right>
-"" vnoremap <S-Tab> >gv|
-"" inoremap <S-Tab> <Tab>|
-
-"" Enter, open line
-nnoremap <CR> i<CR><Esc>|
-inoremap <S-CR> <CR>|
-nnoremap <S-CR> O<Esc>|
-nnoremap <C-CR> o<Esc>|inoremap <C-CR> <C-o>o|
 
 "" Delete/Backspace
 nnoremap <C-d> "_dw|vnoremap <C-d> "_d|inoremap <C-d> <Delete>|cnoremap <C-d> <Delete>|
@@ -277,8 +204,3 @@ nnoremap <C-Delete> "_dw|inoremap <C-Delete> <C-o>"_dw|cnoremap <C-Delete> <Dele
 nnoremap <S-Backspace> "_d^|inoremap <S-Backspace> <Backspace>|cnoremap <S-Backspace> <Backspace>|
 nnoremap <S-Delete> "_d$|inoremap <S-Delete> <Delete>|cnoremap <S-Delete> <Delete>|
 ]])
-
--- Switch tabs by number
-for i = 1,9 do
-    vim.api.nvim_set_keymap('', string.format('g%d', i), string.format('%dgt', i), { noremap = true })
-end
