@@ -1,2 +1,5 @@
-# import shell-agnostic alises
-source ~/.config/fish/conf.d/*.compliant.fish
+# common-shell
+eval "$(cat $HOME/.config/common-shell/modules/*)"
+
+# starship prompt
+eval "$(starship init zsh)"

@@ -1,0 +1,13 @@
+# PATH
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/opt/homebrew/bin"
+
+# Set editor
+export EDITOR="nvim"
+
+# Go
+export GOPATH="$HOME/.go"
+export PATH="$PATH:$GOPATH/bin"
+
+# ripgrep
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
